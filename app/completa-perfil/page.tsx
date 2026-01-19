@@ -1,27 +1,32 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ProfileSlides } from "@/components/profile-slides"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { VideoPlayer } from "@/components/video-player"
 import { ArrowRight } from "lucide-react"
 
 export default function CompletaPerfilPage() {
-  // Placeholder slides - replace with actual content
-  const slides = [
+  // Pasos del perfil - cada uno será un accordion item
+  const steps = [
     {
+      id: "step-1",
       title: "Paso 1: Información básica",
       description: "Completa tu nombre, email y datos de contacto para personalizar tu experiencia.",
       videoUrl: "https://drive.google.com/file/d/14wUKH-jaEBwFai0fJSQnpG_F0ZH6ynvG/view?usp=sharing",
     },
     {
+      id: "step-2",
       title: "Paso 2: Foto de perfil",
       description: "Sube una foto de perfil para que tu asistente AI pueda reconocerte mejor.",
       videoUrl: "https://drive.google.com/file/d/14wUKH-jaEBwFai0fJSQnpG_F0ZH6ynvG/view?usp=sharing",
     },
     {
+      id: "step-3",
       title: "Paso 3: Preferencias",
       description: "Configura tus preferencias de notificaciones y ajustes de privacidad.",
       videoUrl: "https://drive.google.com/file/d/14wUKH-jaEBwFai0fJSQnpG_F0ZH6ynvG/view?usp=sharing",
     },
     {
+      id: "step-4",
       title: "Paso 4: Verificación",
       description: "Verifica tu cuenta para activar todas las funciones de Plinng.",
       videoUrl: "https://drive.google.com/file/d/14wUKH-jaEBwFai0fJSQnpG_F0ZH6ynvG/view?usp=sharing",
@@ -40,17 +45,29 @@ export default function CompletaPerfilPage() {
         </p>
       </div>
 
-      <ProfileSlides slides={slides} />
+      <Accordion type="multiple" className="w-full space-y-4">
+        {steps.map((step) => (
+          <AccordionItem key={step.id} value={step.id} className="border rounded-lg px-4">
+            <AccordionTrigger className="text-left hover:no-underline">
+              <span className="text-lg font-semibold">{step.title}</span>
+            </AccordionTrigger>
+            <AccordionContent className="space-y-4 pb-4">
+              <p className="text-muted-foreground">{step.description}</p>
+              <div className="flex justify-center">
+                <VideoPlayer src={step.videoUrl} title={step.title} aspectRatio="vertical" />
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
 
       <div className="flex justify-end pt-4">
-        <div className="fixed bottom-0 left-0 right-0 lg:relative lg:bottom-auto lg:left-auto lg:right-auto bg-background/95 backdrop-blur-sm border-t lg:border-t-0 p-4 lg:p-0 lg:bg-transparent z-10">
-          <Button asChild size="lg" className="w-full sm:w-auto lg:w-auto min-h-[44px]">
-            <Link href="/conecta-cuentas">
-              Siguiente
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
-        </div>
+        <Button asChild size="lg" className="w-full sm:w-auto lg:w-auto min-h-[44px]">
+          <Link href="/conecta-cuentas">
+            Siguiente
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Link>
+        </Button>
       </div>
     </div>
   )
