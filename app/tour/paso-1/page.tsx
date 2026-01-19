@@ -43,7 +43,7 @@ export default function Paso1Page() {
           </CardHeader>
           <CardContent>
             <CardDescription>
-              Haz clic en el botón "Nueva publicación" y el asistente AI generará contenido 
+              Haz clic en el botón &quot;Nueva publicación&quot; y el asistente AI generará contenido 
               personalizado basado en tu negocio. Puedes editar el contenido antes de publicarlo.
             </CardDescription>
           </CardContent>

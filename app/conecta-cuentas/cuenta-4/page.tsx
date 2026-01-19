@@ -31,7 +31,7 @@ export default function Cuenta4Page() {
           </CardHeader>
           <CardContent>
             <CardDescription>
-              Ve a la sección de Configuración en la app y selecciona "Conectar cuentas".
+              Ve a la sección de Configuración en la app y selecciona &quot;Conectar cuentas&quot;.
             </CardDescription>
           </CardContent>
         </Card>
@@ -42,7 +42,7 @@ export default function Cuenta4Page() {
           </CardHeader>
           <CardContent>
             <CardDescription>
-              Haz clic en el botón "Conectar LinkedIn" y serás redirigido a la página 
+              Haz clic en el botón &quot;Conectar LinkedIn&quot; y serás redirigido a la página 
               de autorización de LinkedIn.
             </CardDescription>
           </CardContent>

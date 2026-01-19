@@ -31,7 +31,7 @@ export default function Cuenta2Page() {
           </CardHeader>
           <CardContent>
             <CardDescription>
-              Ve a la sección de Configuración en la app y selecciona "Conectar cuentas".
+              Ve a la sección de Configuración en la app y selecciona &quot;Conectar cuentas&quot;.
             </CardDescription>
           </CardContent>
         </Card>
@@ -42,7 +42,7 @@ export default function Cuenta2Page() {
           </CardHeader>
           <CardContent>
             <CardDescription>
-              Haz clic en el botón "Conectar Facebook" y serás redirigido a la página 
+              Haz clic en el botón &quot;Conectar Facebook&quot; y serás redirigido a la página 
               de autorización de Facebook.
             </CardDescription>
           </CardContent>

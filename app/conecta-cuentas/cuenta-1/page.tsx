@@ -32,7 +32,7 @@ export default function Cuenta1Page() {
           </CardHeader>
           <CardContent>
             <CardDescription>
-              Ve a la sección de Configuración en la app y selecciona "Conectar cuentas".
+              Ve a la sección de Configuración en la app y selecciona &quot;Conectar cuentas&quot;.
             </CardDescription>
           </CardContent>
         </Card>
@@ -43,7 +43,7 @@ export default function Cuenta1Page() {
           </CardHeader>
           <CardContent>
             <CardDescription>
-              Haz clic en el botón "Conectar Instagram" y serás redirigido a la página 
+              Haz clic en el botón &quot;Conectar Instagram&quot; y serás redirigido a la página 
               de autorización de Instagram.
             </CardDescription>
           </CardContent>

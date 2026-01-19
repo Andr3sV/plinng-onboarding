@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import { Button } from "@/components/ui/button"
 import { VideoPlayer } from "@/components/video-player"
 import { ChevronLeft, ChevronRight } from "lucide-react"
@@ -19,13 +19,13 @@ interface ProfileSlidesProps {
 export function ProfileSlides({ slides }: ProfileSlidesProps) {
   const [currentSlide, setCurrentSlide] = useState(0)
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % slides.length)
-  }
+  }, [slides.length])
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
-  }
+  }, [slides.length])
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index)
@@ -36,12 +36,14 @@ export function ProfileSlides({ slides }: ProfileSlidesProps) {
     let touchStartX = 0
     let touchEndX = 0
 
-    const handleTouchStart = (e: TouchEvent) => {
-      touchStartX = e.changedTouches[0].screenX
+    const handleTouchStart = (e: Event) => {
+      const touchEvent = e as TouchEvent
+      touchStartX = touchEvent.changedTouches[0].screenX
     }
 
-    const handleTouchEnd = (e: TouchEvent) => {
-      touchEndX = e.changedTouches[0].screenX
+    const handleTouchEnd = (e: Event) => {
+      const touchEvent = e as TouchEvent
+      touchEndX = touchEvent.changedTouches[0].screenX
       handleSwipe()
     }
 
@@ -66,7 +68,7 @@ export function ProfileSlides({ slides }: ProfileSlidesProps) {
         container.removeEventListener('touchend', handleTouchEnd)
       }
     }
-  }, [])
+  }, [nextSlide, prevSlide])
 
   return (
     <div className="space-y-6">
