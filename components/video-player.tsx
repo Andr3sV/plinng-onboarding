@@ -21,34 +21,58 @@ export function VideoPlayer({ src, title, className, aspectRatio = "horizontal" 
 
     const embedUrl = getEmbedUrl(src)
 
-    // Aspect ratios: horizontal (16:9), vertical (9:16), square (1:1)
+    // For vertical videos, use fixed dimensions
+    if (aspectRatio === "vertical") {
+        return (
+            <div className={cn("flex justify-center", className)}>
+                <div
+                    className="relative rounded-lg overflow-hidden"
+                    style={{
+                        width: "280px",
+                        height: "550px",
+                    }}
+                >
+                    <iframe
+                        src={embedUrl}
+                        title={title || "Video"}
+                        className="w-full h-full border-0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        loading="lazy"
+                    />
+                </div>
+            </div>
+        )
+    }
+
+    // For horizontal and square videos, use aspect ratio with padding
     const aspectRatios = {
         horizontal: "56.25%", // 16:9
-        vertical: "177.78%", // 9:16 (inverted)
         square: "100%", // 1:1
     }
 
-    const paddingBottom = aspectRatios[aspectRatio]
+    const paddingBottom = aspectRatios[aspectRatio] || "56.25%"
 
     return (
-        <div className={cn("w-full flex justify-center", className)} style={{ margin: 0, padding: 0, background: "transparent" }}>
-            <div className="relative" style={{
-                width: "70%",
-                maxWidth: "400px",
-                height: "550px",
-                background: "transparent"
-            }}>
+        <div className={cn("flex justify-center", className)}>
+            <div
+                className="relative rounded-lg overflow-hidden"
+                style={{
+                    width: "100%",
+                    maxWidth: "800px",
+                    paddingBottom: paddingBottom,
+                    height: 0,
+                }}
+            >
                 <iframe
                     src={embedUrl}
                     title={title || "Video"}
-                    className="absolute top-0 left-0 w-full h-full rounded-lg"
+                    className="absolute top-0 left-0 w-full h-full border-0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                     loading="lazy"
-                    style={{ background: "transparent" }}
                 />
             </div>
         </div>
     )
 }
-

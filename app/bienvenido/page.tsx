@@ -14,9 +14,10 @@ export default function BienvenidoPage() {
                     Bienvenido a Plinng
                 </h1>
                 <p className="text-lg text-muted-foreground">
-                    Plinng es tu asistente AI de marketing que genera posts para redes sociales y
-                    posicionamiento SEO, además de ser tu recepcionista AI que atiende llamadas y
-                    mensajes de WhatsApp. Te guiaremos paso a paso para poner en marcha tu app.
+                    En este vídeo te doy la bienvenida y te contamos cómo Plinng va a ayudarte a comunicar mejor tu negocio, ganar visibilidad y sentir que tu marketing está bajo control, desde el primer día.
+                </p>
+                <p className="text-lg font-semibold text-foreground">
+                    ¡Haz clic y empezamos!
                 </p>
             </div>
 
