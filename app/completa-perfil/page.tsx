@@ -40,8 +40,9 @@ export default function CompletaPerfilPage() {
           Completa tu perfil
         </h1>
         <p className="text-lg text-muted-foreground">
-          Sigue estos pasos para configurar tu perfil y comenzar a usar todas las funciones 
-          de Plinng. Cada paso incluye un video tutorial para guiarte.
+          Aquí nos <strong>cuentas lo esencial sobre tu negocio: qué haces, a quién te diriges, cómo quieres comunicar y cuáles son tus objetivos.</strong>
+          <br /><br />
+          Cuanto más claro seas, mejor entenderá Plinng tu negocio y mejores serán los resultados desde el primer día.
         </p>
       </div>
 
@@ -64,7 +65,7 @@ export default function CompletaPerfilPage() {
       <div className="flex justify-end pt-4">
         <Button asChild size="lg" className="w-full sm:w-auto lg:w-auto min-h-[44px]">
           <Link href="/conecta-cuentas">
-            Siguiente
+            Conecta tus cuentas
             <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </Button>
