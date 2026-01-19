@@ -41,10 +41,10 @@ export default function Home() {
         <div className="space-y-8">
             <div className="text-center space-y-4 py-8">
                 <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-                    Bienvenido a Plinng
+                    Conoce y pon en marcha Plinng
                 </h1>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                    Tu asistente AI de marketing y recepcionista virtual. Sigue estos pasos para comenzar.
+                    Invierte unos minutos en poner en marcha tu app de Plinng y ahorra horas de trabajo cada semana.
                 </p>
                 <div className="pt-4">
                     <Button asChild size="lg" className="text-lg px-8">
