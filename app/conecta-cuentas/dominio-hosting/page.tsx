@@ -23,11 +23,11 @@ export default function DominioHostingPage() {
               <ArrowLeft className="h-5 w-5" />
             </Link>
           </Button>
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+          <h1 className="text-[42px] font-bold tracking-[-1.5px]">
             Dominio / Hosting
           </h1>
         </div>
-        <p className="text-lg text-muted-foreground">
+        <p className="text-[18px] leading-[28px] text-muted-foreground">
           Sigue estos pasos para configurar tu dominio y hosting con Plinng.
         </p>
       </div>
@@ -39,7 +39,7 @@ export default function DominioHostingPage() {
               <span className="text-lg font-semibold">{step.title}</span>
             </AccordionTrigger>
             <AccordionContent className="space-y-4 pb-4">
-              <p className="text-muted-foreground">{step.description}</p>
+              <p className="text-[18px] leading-[28px] text-muted-foreground">{step.description}</p>
               <div className="flex justify-center">
                 <VideoPlayer src={step.videoUrl} title={step.title} aspectRatio="vertical" />
               </div>

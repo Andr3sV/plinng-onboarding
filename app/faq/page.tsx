@@ -79,10 +79,10 @@ export default function FAQPage() {
   return (
     <div className="space-y-8 max-w-4xl mx-auto">
       <div className="space-y-4">
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+        <h1 className="text-[42px] font-bold tracking-[-1.5px]">
           Preguntas frecuentes
         </h1>
-        <p className="text-lg text-muted-foreground">
+        <p className="text-[18px] leading-[28px] text-muted-foreground">
           Encuentra respuestas a las preguntas más comunes sobre Plinng.
         </p>
       </div>

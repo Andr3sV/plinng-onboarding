@@ -49,11 +49,11 @@ export default function FacebookInstagramPage() {
               <ArrowLeft className="h-5 w-5" />
             </Link>
           </Button>
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+          <h1 className="text-[42px] font-bold tracking-[-1.5px]">
             Facebook / Instagram
           </h1>
         </div>
-        <p className="text-lg text-muted-foreground">
+        <p className="text-[18px] leading-[28px] text-muted-foreground">
           Sigue estos pasos para conectar tus cuentas de Facebook e Instagram con Plinng.
         </p>
       </div>
@@ -65,7 +65,7 @@ export default function FacebookInstagramPage() {
               <span className="text-lg font-semibold">{step.title}</span>
             </AccordionTrigger>
             <AccordionContent className="space-y-4 pb-4">
-              <p className="text-muted-foreground">{step.description}</p>
+              <p className="text-[18px] leading-[28px] text-muted-foreground">{step.description}</p>
               
               {step.subSteps ? (
                 <div className="space-y-4">
@@ -76,7 +76,7 @@ export default function FacebookInstagramPage() {
                           <span className="font-medium">{subStep.title}</span>
                         </AccordionTrigger>
                         <AccordionContent className="space-y-4 pb-4">
-                          <p className="text-sm text-muted-foreground">{subStep.description}</p>
+                          <p className="text-[18px] leading-[28px] text-muted-foreground">{subStep.description}</p>
                           <div className="flex justify-center">
                             <VideoPlayer src={subStep.videoUrl} title={subStep.title} aspectRatio="vertical" />
                           </div>

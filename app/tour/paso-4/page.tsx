@@ -15,11 +15,11 @@ export default function Paso4Page() {
         </Button>
         <div className="flex items-center gap-3">
           <MessageSquare className="h-8 w-8 text-primary" />
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+          <h1 className="text-[42px] font-bold tracking-[-1.5px]">
             Mensajería
           </h1>
         </div>
-        <p className="text-lg text-muted-foreground">
+        <p className="text-[18px] leading-[28px] text-muted-foreground">
           Gestiona las conversaciones de tu recepcionista AI y atiende a tus clientes.
         </p>
       </div>

@@ -9,10 +9,10 @@ export default function DescargaAppPage() {
     return (
         <div className="max-w-4xl mx-auto pb-20 lg:pb-0">
             <div className="space-y-4 mb-6">
-                <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                <h1 className="text-[42px] font-bold tracking-[-1.5px]">
                     Descarga la app
                 </h1>
-                <p className="text-lg text-muted-foreground">
+                <p className="text-[18px] leading-[28px] text-muted-foreground">
                     Aquí te enseñamos cómo descargar la app de Plinng y entrar en segundos.
                     Así podrás gestionar tu marketing desde el móvil, aprobar contenidos y seguir todo en un solo lugar.
                 </p>

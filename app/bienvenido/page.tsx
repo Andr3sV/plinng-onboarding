@@ -10,13 +10,13 @@ export default function BienvenidoPage() {
     return (
         <div className="max-w-4xl mx-auto pb-20 lg:pb-0">
             <div className="space-y-4 mb-6">
-                <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                <h1 className="text-[42px] font-bold tracking-[-1.5px]">
                     Bienvenido a Plinng
                 </h1>
-                <p className="text-lg text-muted-foreground">
+                <p className="text-[18px] leading-[28px] text-muted-foreground">
                     En este vídeo te doy la bienvenida y te contamos cómo Plinng va a ayudarte a comunicar mejor tu negocio, ganar visibilidad y sentir que tu marketing está bajo control, desde el primer día.
                 </p>
-                <p className="text-lg font-semibold text-foreground">
+                <p className="text-[18px] leading-[28px] font-semibold text-foreground">
                     ¡Haz clic y empezamos!
                 </p>
             </div>
@@ -27,7 +27,7 @@ export default function BienvenidoPage() {
                 </div>
 
                 <div className="space-y-4 m-0">
-                    <p className="text-muted-foreground m-0">
+                    <p className="text-[18px] leading-[28px] text-muted-foreground m-0">
                         Escanea el código QR con tu dispositivo móvil para descargar la aplicación.
                     </p>
                     <div className="m-0 p-0">

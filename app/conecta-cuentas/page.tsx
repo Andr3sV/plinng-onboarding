@@ -28,10 +28,10 @@ export default function ConectaCuentasPage() {
     return (
         <div className="space-y-8 max-w-6xl mx-auto pb-20 lg:pb-0">
             <div className="space-y-4">
-                <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                <h1 className="text-[42px] font-bold tracking-[-1.5px]">
                     Conecta tus cuentas
                 </h1>
-                <p className="text-lg text-muted-foreground">
+                <p className="text-[18px] leading-[28px] text-muted-foreground">
                     Para que Plinng pueda trabajar por ti, <strong>necesitamos conectar tus herramientas</strong>.
 
                     Así podremos crear, programar y analizar tu contenido de forma automática, siempre con tu aprobación.

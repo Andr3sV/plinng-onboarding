@@ -36,10 +36,10 @@ export default function CompletaPerfilPage() {
   return (
     <div className="space-y-8 max-w-4xl mx-auto pb-20 lg:pb-0">
       <div className="space-y-4">
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+        <h1 className="text-[42px] font-bold tracking-[-1.5px]">
           Completa tu perfil
         </h1>
-        <p className="text-lg text-muted-foreground">
+        <p className="text-[18px] leading-[28px] text-muted-foreground">
           Aquí nos <strong>cuentas lo esencial sobre tu negocio: qué haces, a quién te diriges, cómo quieres comunicar y cuáles son tus objetivos.</strong>
           <br /><br />
           Cuanto más claro seas, mejor entenderá Plinng tu negocio y mejores serán los resultados desde el primer día.
@@ -53,7 +53,7 @@ export default function CompletaPerfilPage() {
               <span className="text-lg font-semibold">{step.title}</span>
             </AccordionTrigger>
             <AccordionContent className="space-y-4 pb-4">
-              <p className="text-muted-foreground">{step.description}</p>
+              <p className="text-[18px] leading-[28px] text-muted-foreground">{step.description}</p>
               <div className="flex justify-center">
                 <VideoPlayer src={step.videoUrl} title={step.title} aspectRatio="vertical" />
               </div>
