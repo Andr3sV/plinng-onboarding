@@ -13,7 +13,60 @@ export default function DescargaAppPage() {
                         Aquí te enseñamos cómo descargar la app de Plinng y entrar en segundos.
                         Así podrás gestionar tu marketing desde el móvil, aprobar contenidos y seguir todo en un solo lugar.
                     </div>
-                    <Link href="/completa-perfil" className="w-full sm:w-auto">
+
+                    {/* App Store and Google Play buttons */}
+                    <div className="flex items-start gap-4 text-[9px] text-white">
+                        <div className="h-11 w-[130px] relative rounded-md bg-black border border-gray-600 border-solid box-border overflow-hidden shrink-0">
+                            <Image
+                                src="/assets/download-plinng/Apple.svg"
+                                className="absolute top-[8px] left-[8px] w-5 h-6"
+                                width={20}
+                                height={24}
+                                alt="Apple logo"
+                            />
+                            <div className="absolute top-[calc(50%_-_13.5px)] left-[36px] w-[96px] flex flex-col items-start">
+                                <div className="self-stretch relative leading-[9px] font-medium">Download on the</div>
+                                <div className="self-stretch relative text-lg tracking-[-0.47px] leading-[100%] font-medium">App Store</div>
+                            </div>
+                        </div>
+                        <div className="h-11 w-[130px] relative rounded-md bg-black border border-gray-600 border-solid box-border overflow-hidden shrink-0 text-[10px]">
+                            <Image
+                                src="/assets/download-plinng/Playstore.svg"
+                                className="absolute top-[8px] left-[8px] w-[21px] h-6"
+                                width={21}
+                                height={24}
+                                alt="Google Play logo"
+                            />
+                            <div className="absolute top-[5px] left-[36px] flex flex-col items-start gap-[3px]">
+                                <div className="self-stretch relative uppercase">GET IT ON</div>
+                                <Image
+                                    src="/assets/download-plinng/path90.svg"
+                                    className="w-[74px] h-[15px] relative"
+                                    width={74}
+                                    height={15}
+                                    alt="Google Play"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* QR Code section */}
+                    <div className="self-stretch relative text-[16px] sm:text-[17px] lg:text-[18px] leading-[24px] sm:leading-[26px] lg:leading-[28px] text-[#2F4F4F]">
+                        o puedes escanear el código QR con tu dispositivo móvil:
+                    </div>
+                    <div className="rounded-[30px] bg-[#BEFF50] flex flex-col items-center justify-center p-4 gap-2 text-center text-sm w-fit">
+                        <Image
+                            src="/assets/download-plinng/QR code.png"
+                            className="w-[100px] h-[100px] relative rounded-[10px] max-h-full object-cover"
+                            width={100}
+                            height={100}
+                            alt="QR Code para descargar Plinng"
+                        />
+                        <div className="relative leading-6 font-semibold text-[#000000]">Descarga Plinng.</div>
+                    </div>
+
+                    {/* CTA Button */}
+                    <Link href="/completa-perfil" className="w-full sm:w-auto mt-6">
                         <div className="rounded-[18px] bg-[#BEFF50] flex items-center justify-center py-3 px-8 text-center text-base cursor-pointer transition-all hover:opacity-90 w-full sm:w-auto">
                             <div className="relative leading-7 font-semibold text-[#000000]">Completa tu perfil</div>
                             <Image
