@@ -2,6 +2,13 @@ import Link from "next/link"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
+import { Poppins } from "next/font/google"
+
+const poppins = Poppins({ 
+  subsets: ["latin"], 
+  weight: ["700"], // Bold
+  variable: "--font-poppins"
+})
 
 const navigationCards = [
     {
@@ -40,7 +47,7 @@ export default function Home() {
     return (
         <div className="space-y-8">
             <div className="text-center space-y-4 py-8">
-                <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+                <h1 className={`text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl ${poppins.className}`}>
                     Pon en marcha Plinng
                 </h1>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
