@@ -32,7 +32,7 @@ const navigationCards = [
     },
     {
         href: "/tour",
-        title: "Tour por la app",
+        title: "Primero pasos",
         description: "Aprende a usar las funciones principales",
         linkText: "Echale un ojo",
         image: "/assets/Card image-4.png",
