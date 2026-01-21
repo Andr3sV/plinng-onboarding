@@ -28,7 +28,7 @@ export function VideoPlayer({ src, title, className, aspectRatio = "horizontal" 
                 <div
                     className="relative rounded-lg overflow-hidden"
                     style={{
-                        width: "280px",
+                        width: "100%",
                         height: "550px",
                     }}
                 >

@@ -74,8 +74,9 @@ const accountSteps = {
         {
             id: "step-1",
             title: "Rellena el siguiente formulario",
-            description: "",
-            videoUrl: "https://drive.google.com/file/d/14wUKH-jaEBwFai0fJSQnpG_F0ZH6ynvG/view?usp=sharing",
+            description: "Para poder completar el *brief* de la web —tanto si se trata de una web nueva como de realizar modificaciones sobre una existente— es necesario que rellenes el siguiente formulario:\n\n👉🏻 https://form.typeform.com/to/yeapDpG0\n\n- Si **quieres una web nueva o realizar cambios**, completa todas las secciones del formulario.\n- Si **no deseas ningún cambio**, rellena únicamente el apartado de **accesos a tus cuentas de web y Facebook**.",
+            videoUrl: "https://drive.google.com/file/d/1rwMHDeuc-_E2y9kt4tFjBNZd6d7CuSDk/view?usp=sharing",
+            aspectRatio: "vertical",
         },
     ],
 }
@@ -165,21 +166,23 @@ export default function ConectaCuentasPage() {
                                             </AccordionTrigger>
                                             <AccordionContent className="px-8 pb-4 pt-0">
                                                 {step.description && (
-                                                    <div className="self-stretch relative leading-[28px] text-[#2F4F4F] mb-4">
-                                                        {step.description.includes('http') ? (
-                                                            <>
-                                                                {step.description.split(/(https?:\/\/[^\s]+)/).map((part, index) =>
-                                                                    part.match(/^https?:\/\//) ? (
-                                                                        <a key={index} href={part} target="_blank" rel="noopener noreferrer" className="text-[#0000EE] underline hover:text-[#0000CC]">
-                                                                            {part}
-                                                                        </a>
-                                                                    ) : (
-                                                                        <span key={index}>{part}</span>
-                                                                    )
-                                                                )}
-                                                            </>
-                                                        ) : (
-                                                            step.description
+                                                    <div className="self-stretch relative leading-[28px] text-[#2F4F4F] mb-4 whitespace-pre-line">
+                                                        {step.description.split(/(https?:\/\/[^\s]+)/).map((part, index) =>
+                                                            part.match(/^https?:\/\//) ? (
+                                                                <a key={index} href={part} target="_blank" rel="noopener noreferrer" className="text-[#0000EE] underline hover:text-[#0000CC]">
+                                                                    {part}
+                                                                </a>
+                                                            ) : (
+                                                                <span key={index}>
+                                                                    {part.split(/(\*\*[^*]+\*\*)/).map((subPart, subIndex) =>
+                                                                        subPart.match(/^\*\*[^*]+\*\*$/) ? (
+                                                                            <strong key={subIndex}>{subPart.replace(/\*\*/g, '')}</strong>
+                                                                        ) : (
+                                                                            <span key={subIndex}>{subPart}</span>
+                                                                        )
+                                                                    )}
+                                                                </span>
+                                                            )
                                                         )}
                                                     </div>
                                                 )}
@@ -223,7 +226,7 @@ export default function ConectaCuentasPage() {
                                                         <VideoPlayer
                                                             src={step.videoUrl}
                                                             title={step.title}
-                                                            aspectRatio="horizontal"
+                                                            aspectRatio={"aspectRatio" in step && step.aspectRatio ? (step.aspectRatio as "vertical" | "horizontal" | "square") : "horizontal"}
                                                         />
                                                     </div>
                                                 )}
