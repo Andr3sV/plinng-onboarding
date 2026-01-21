@@ -1,5 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
+import { MobileVideoContainer } from "@/components/mobile-video-container"
 
 export default function DescargaAppPage() {
     const videoUrl = "https://drive.google.com/file/d/14wUKH-jaEBwFai0fJSQnpG_F0ZH6ynvG/view?usp=sharing"
@@ -79,16 +80,10 @@ export default function DescargaAppPage() {
                         </div>
                     </Link>
                 </div>
-                <div className="h-[500px] sm:h-[550px] lg:h-[600px] w-full max-w-[300px] lg:w-[300px] relative rounded-[40px] bg-[#EDEEEC] border-black border-solid border-[8px] sm:border-[10px] lg:border-[11px] box-border overflow-hidden shrink-0 flex items-center justify-center">
-                    <iframe
-                        src="https://drive.google.com/file/d/14wUKH-jaEBwFai0fJSQnpG_F0ZH6ynvG/preview"
-                        title="Descarga la app"
-                        className="w-full h-full border-0 rounded-[29px]"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        loading="lazy"
-                    />
-                </div>
+                <MobileVideoContainer
+                    videoUrl={videoUrl}
+                    title="Descarga la app"
+                />
             </div>
         </div>
     )
