@@ -1,8 +1,8 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 import { VideoPlayer } from "@/components/video-player"
-import { ArrowRight, Play, Settings, BarChart3, MessageSquare } from "lucide-react"
+import { Play, Settings, BarChart3, MessageSquare } from "lucide-react"
 
 const tourSteps = [
     {
@@ -35,10 +35,26 @@ export default function TourPage() {
     const videoUrl = "https://drive.google.com/file/d/14wUKH-jaEBwFai0fJSQnpG_F0ZH6ynvG/view?usp=sharing"
 
     return (
-        <div className="space-y-8 max-w-6xl mx-auto pb-20 lg:pb-0">
+        <div className="space-y-8 max-w-6xl mx-auto pb-20 lg:pb-0 relative">
+            {/* Botón Siguiente en esquina superior derecha */}
+            <div className="flex justify-end mb-[56px]">
+                <Link href="/faq">
+                    <div className="rounded-[18px] bg-[#BEFF50] flex items-center justify-center py-3 px-8 text-center text-base cursor-pointer transition-all hover:opacity-90">
+                        <div className="relative leading-7 font-semibold text-[#000000]">Siguiente</div>
+                        <Image
+                            src="/assets/icons/arrow2.svg"
+                            className="h-5 w-7 ml-2"
+                            width={28}
+                            height={20}
+                            alt=""
+                        />
+                    </div>
+                </Link>
+            </div>
+
             <div className="space-y-4">
                 <h1 className="text-[42px] font-bold tracking-[-1.5px]">
-                    Tour por la app
+                    Tour por la app y primeros pasos
                 </h1>
                 <p className="text-[18px] leading-[28px] text-muted-foreground">
                     Aprende a usar todas las funciones de Plinng con este tour guiado.
@@ -79,16 +95,6 @@ export default function TourPage() {
                 </div>
             </div>
 
-            <div className="flex justify-end pt-4">
-                <div className="fixed bottom-0 left-0 right-0 lg:relative lg:bottom-auto lg:left-auto lg:right-auto bg-background/95 backdrop-blur-sm border-t lg:border-t-0 p-4 lg:p-0 lg:bg-transparent z-10">
-                    <Button asChild size="lg" className="w-full sm:w-auto lg:w-auto min-h-[44px]">
-                        <Link href="/faq">
-                            Siguiente
-                            <ArrowRight className="ml-2 h-4 w-4" />
-                        </Link>
-                    </Button>
-                </div>
-            </div>
         </div>
     )
 }
