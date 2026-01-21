@@ -13,7 +13,7 @@ const accountTypes = [
     },
     {
         id: "google-empresa",
-        title: "Google business",
+        title: "Google Empresa",
     },
     {
         id: "dominio-hosting",
@@ -27,13 +27,13 @@ const accountSteps = {
             id: "step-1",
             title: "Paso 1: Crear la página de Facebook de la empresa.",
             description: "Si la página ya está creada, continúa con el paso 2.",
-            videoUrl: "https://drive.google.com/file/d/14wUKH-jaEBwFai0fJSQnpG_F0ZH6ynvG/view?usp=sharing",
+            videoUrl: "https://drive.google.com/file/d/1HvSpGU6wSp1e6tUJ83IhaxLyaGhJf4Pg/view?usp=sharing",
         },
         {
             id: "step-2",
             title: "Paso 2: Otorgar acceso a Plinng a la página de Facebook de la empresa.",
             description: "",
-            videoUrl: "https://drive.google.com/file/d/14wUKH-jaEBwFai0fJSQnpG_F0ZH6ynvG/view?usp=sharing",
+            videoUrl: "https://drive.google.com/file/d/1oWctoy4n_PsP8G9kXHDuOeLn3ketqdrS/view?usp=sharing",
         },
         {
             id: "step-3",
@@ -45,13 +45,13 @@ const accountSteps = {
                     id: "substep-3a",
                     title: "Si ya tienes cuenta de Instagram",
                     description: "",
-                    videoUrl: "https://drive.google.com/file/d/14wUKH-jaEBwFai0fJSQnpG_F0ZH6ynvG/view?usp=sharing",
+                    videoUrl: "https://drive.google.com/file/d/1qqAqnaLSrSG1L-9B3UsB-CxOC3fUWZ_q/view?usp=sharing",
                 },
                 {
                     id: "substep-3b",
                     title: "Si aún no tienes cuenta de Instagram",
                     description: "",
-                    videoUrl: "https://drive.google.com/file/d/14wUKH-jaEBwFai0fJSQnpG_F0ZH6ynvG/view?usp=sharing",
+                    videoUrl: "https://drive.google.com/file/d/1PPoA7In0bIURuDNi6ahSzZsNuKPor2tO/view?usp=sharing",
                 },
             ],
         },
@@ -59,9 +59,15 @@ const accountSteps = {
     "google-empresa": [
         {
             id: "step-1",
-            title: "Añadir Plinng cómo gestor de la cuenta",
+            title: "Crear perfil de Google Empresa",
+            description: "Puedes hacerlo desde este enlace: https://business.google.com/es-all/business-profile/",
+            videoUrl: "https://drive.google.com/file/d/17J8JW3ksVl8GPJH9jMRBIdFQcgw5Z98k/view?usp=sharing",
+        },
+        {
+            id: "step-2",
+            title: "Añadir Plinng como gestor de la cuenta Google Empresa",
             description: "",
-            videoUrl: "https://drive.google.com/file/d/14wUKH-jaEBwFai0fJSQnpG_F0ZH6ynvG/view?usp=sharing",
+            videoUrl: "https://drive.google.com/file/d/1ffVkV1hjdVAat4ctqKajaIyzlyMfsfv1/view?usp=sharing",
         },
     ],
     "dominio-hosting": [
@@ -160,13 +166,27 @@ export default function ConectaCuentasPage() {
                                             <AccordionContent className="px-8 pb-4 pt-0">
                                                 {step.description && (
                                                     <div className="self-stretch relative leading-[28px] text-[#2F4F4F] mb-4">
-                                                        {step.description}
+                                                        {step.description.includes('http') ? (
+                                                            <>
+                                                                {step.description.split(/(https?:\/\/[^\s]+)/).map((part, index) =>
+                                                                    part.match(/^https?:\/\//) ? (
+                                                                        <a key={index} href={part} target="_blank" rel="noopener noreferrer" className="text-[#0000EE] underline hover:text-[#0000CC]">
+                                                                            {part}
+                                                                        </a>
+                                                                    ) : (
+                                                                        <span key={index}>{part}</span>
+                                                                    )
+                                                                )}
+                                                            </>
+                                                        ) : (
+                                                            step.description
+                                                        )}
                                                     </div>
                                                 )}
 
                                                 {"subSteps" in step && step.subSteps ? (
                                                     <div className="space-y-4">
-                                                        <Accordion type="single" collapsible className="w-full">
+                                                        <Accordion type="single" collapsible className="w-full space-y-2">
                                                             {step.subSteps.map((subStep: { id: string; title: string; description: string; videoUrl: string }) => (
                                                                 <AccordionItem
                                                                     key={subStep.id}
