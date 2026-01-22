@@ -8,8 +8,8 @@ export default function DescargaAppPage() {
     return (
         <div className="w-full flex items-center justify-center px-4 sm:px-6 lg:px-[40px] pb-4 sm:pb-6 lg:pb-[40px]">
             <div className="w-full max-w-6xl relative">
-                {/* Botón Completa tu perfil en esquina superior derecha */}
-                <div className="flex justify-end mb-[56px]">
+                {/* Botón Completa tu perfil en esquina superior derecha - Desktop */}
+                <div className="hidden lg:flex justify-end mb-[56px]">
                     <Link href="/completa-perfil">
                         <div className="rounded-[18px] bg-[#BEFF50] flex items-center justify-center py-3 px-8 text-center text-base cursor-pointer transition-all hover:opacity-90">
                             <div className="relative leading-7 font-semibold text-[#000000]">Completa tu perfil</div>
@@ -89,6 +89,22 @@ export default function DescargaAppPage() {
                         title="Descarga la app"
                         showBorder={true}
                     />
+                </div>
+
+                {/* Botón Completa tu perfil al final - Mobile */}
+                <div className="flex lg:hidden mt-8 mb-4">
+                    <Link href="/completa-perfil" className="w-full">
+                        <div className="rounded-[18px] bg-[#BEFF50] flex items-center justify-center py-3 px-8 text-center text-base cursor-pointer transition-all hover:opacity-90 w-full">
+                            <div className="relative leading-7 font-semibold text-[#000000]">Completa tu perfil</div>
+                            <Image
+                                src="/assets/icons/arrow2.svg"
+                                className="h-5 w-7 ml-2"
+                                width={28}
+                                height={20}
+                                alt=""
+                            />
+                        </div>
+                    </Link>
                 </div>
             </div>
         </div>

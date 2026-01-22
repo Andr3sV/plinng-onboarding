@@ -31,6 +31,7 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply text-foreground;
     background: #ffffff;
@@ -43,14 +44,13 @@
   .touch-manipulation {
     touch-action: manipulation;
   }
-  
+
   /* Safe area for iOS */
   .safe-top {
     padding-top: env(safe-area-inset-top);
   }
-  
+
   .safe-bottom {
     padding-bottom: env(safe-area-inset-bottom);
   }
 }
-
