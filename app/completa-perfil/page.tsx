@@ -15,25 +15,25 @@ export default function CompletaPerfilPage() {
             id: "step-1",
             title: "Paso 1: Información básica",
             description: "Completa tu nombre, email y datos de contacto para personalizar tu experiencia.",
-            videoUrl: "https://drive.google.com/file/d/14wUKH-jaEBwFai0fJSQnpG_F0ZH6ynvG/view?usp=sharing",
+            videoUrl: "https://vimeo.com/613729649",
         },
         {
             id: "step-2",
             title: "Paso 2: Foto de perfil",
             description: "Sube una foto de perfil para que tu asistente AI pueda reconocerte mejor.",
-            videoUrl: "https://drive.google.com/file/d/14wUKH-jaEBwFai0fJSQnpG_F0ZH6ynvG/view?usp=sharing",
+            videoUrl: "https://www.canva.com/design/DAG_FlNWuV4/yDduRWFmCREjTzqAuyvPCQ/watch?utm_content=DAG_FlNWuV4&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h351124928d",
         },
         {
             id: "step-3",
             title: "Paso 3: Preferencias básica",
             description: "Configura tus preferencias de notificaciones y ajustes de privacidad.",
-            videoUrl: "https://drive.google.com/file/d/14wUKH-jaEBwFai0fJSQnpG_F0ZH6ynvG/view?usp=sharing",
+            videoUrl: "https://www.canva.com/design/DAG_FlNWuV4/yDduRWFmCREjTzqAuyvPCQ/watch?utm_content=DAG_FlNWuV4&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h351124928d",
         },
         {
             id: "step-4",
             title: "Paso 4: Verificación",
             description: "Verifica tu cuenta para activar todas las funciones de Plinng.",
-            videoUrl: "https://drive.google.com/file/d/14wUKH-jaEBwFai0fJSQnpG_F0ZH6ynvG/view?usp=sharing",
+            videoUrl: "https://www.canva.com/design/DAG_FlNWuV4/yDduRWFmCREjTzqAuyvPCQ/watch?utm_content=DAG_FlNWuV4&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h351124928d",
         },
     ]
 
@@ -48,10 +48,36 @@ export default function CompletaPerfilPage() {
     }
 
     const getEmbedUrl = (url: string) => {
+        // Canva: https://www.canva.com/design/DESIGN_ID/...
+        const canvaMatch = url.match(/canva\.com\/design\/([a-zA-Z0-9_-]+)/)
+        if (canvaMatch) {
+            return `https://www.canva.com/design/${canvaMatch[1]}/view?embed`
+        }
+
+        // YouTube Shorts: https://www.youtube.com/shorts/VIDEO_ID
+        const shortsMatch = url.match(/youtube\.com\/shorts\/([a-zA-Z0-9_-]+)/)
+        if (shortsMatch) {
+            return `https://www.youtube.com/embed/${shortsMatch[1]}`
+        }
+
+        // YouTube regular: https://www.youtube.com/watch?v=VIDEO_ID
+        const youtubeMatch = url.match(/youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/)
+        if (youtubeMatch) {
+            return `https://www.youtube.com/embed/${youtubeMatch[1]}`
+        }
+
+        // YouTube youtu.be: https://youtu.be/VIDEO_ID
+        const youtuBeMatch = url.match(/youtu\.be\/([a-zA-Z0-9_-]+)/)
+        if (youtuBeMatch) {
+            return `https://www.youtube.com/embed/${youtuBeMatch[1]}`
+        }
+
+        // Google Drive share link
         const fileIdMatch = url.match(/\/d\/([a-zA-Z0-9_-]+)/)
         if (fileIdMatch) {
             return `https://drive.google.com/file/d/${fileIdMatch[1]}/preview`
         }
+
         return url
     }
 

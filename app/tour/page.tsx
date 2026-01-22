@@ -116,7 +116,7 @@ export default function TourPage() {
                                             {step.title}
                                         </div>
                                         <div className="relative text-[14px] leading-[20px] font-normal text-[#777777]">
-                                            ({step.shortDescription})
+                                            {step.shortDescription}
                                         </div>
                                     </div>
                                     <Image

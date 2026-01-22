@@ -10,12 +10,38 @@ interface VideoPlayerProps {
 }
 
 export function VideoPlayer({ src, title, className, aspectRatio = "horizontal" }: VideoPlayerProps) {
-    // Convert Google Drive share link to embed format
+    // Convert URLs to embed format
     const getEmbedUrl = (url: string) => {
+        // Canva: https://www.canva.com/design/DESIGN_ID/...
+        const canvaMatch = url.match(/canva\.com\/design\/([a-zA-Z0-9_-]+)/)
+        if (canvaMatch) {
+            return `https://www.canva.com/design/${canvaMatch[1]}/view?embed`
+        }
+
+        // YouTube Shorts: https://www.youtube.com/shorts/VIDEO_ID
+        const shortsMatch = url.match(/youtube\.com\/shorts\/([a-zA-Z0-9_-]+)/)
+        if (shortsMatch) {
+            return `https://www.youtube.com/embed/${shortsMatch[1]}`
+        }
+
+        // YouTube regular: https://www.youtube.com/watch?v=VIDEO_ID
+        const youtubeMatch = url.match(/youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/)
+        if (youtubeMatch) {
+            return `https://www.youtube.com/embed/${youtubeMatch[1]}`
+        }
+
+        // YouTube youtu.be: https://youtu.be/VIDEO_ID
+        const youtuBeMatch = url.match(/youtu\.be\/([a-zA-Z0-9_-]+)/)
+        if (youtuBeMatch) {
+            return `https://www.youtube.com/embed/${youtuBeMatch[1]}`
+        }
+
+        // Google Drive share link
         const fileIdMatch = url.match(/\/d\/([a-zA-Z0-9_-]+)/)
         if (fileIdMatch) {
             return `https://drive.google.com/file/d/${fileIdMatch[1]}/preview`
         }
+
         return url
     }
 
@@ -28,7 +54,7 @@ export function VideoPlayer({ src, title, className, aspectRatio = "horizontal" 
                 <div
                     className="relative rounded-lg overflow-hidden"
                     style={{
-                        width: "100%",
+                        width: "280px",
                         height: "550px",
                     }}
                 >

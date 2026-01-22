@@ -3,7 +3,7 @@ import Image from "next/image"
 import { MobileVideoContainer } from "@/components/mobile-video-container"
 
 export default function DescargaAppPage() {
-    const videoUrl = "https://drive.google.com/file/d/14wUKH-jaEBwFai0fJSQnpG_F0ZH6ynvG/view?usp=sharing"
+    const videoUrl = "/videos/accesos-web.mp4"
 
     return (
         <div className="w-full flex items-center justify-center px-4 sm:px-6 lg:px-[40px] pb-4 sm:pb-6 lg:pb-[40px]">
