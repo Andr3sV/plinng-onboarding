@@ -111,11 +111,11 @@ export default function TourPage() {
                                         : "border border-[#EDEEEC] border-solid bg-white hover:bg-[#EDEEEC]/50"
                                         }`}
                                 >
-                                    <div className="flex-1 flex items-center justify-between gap-4">
-                                        <div className="relative text-[18px] leading-[28px] font-semibold text-black">
+                                    <div className="flex-1 flex flex-col gap-1">
+                                        <div className="relative text-[16px] leading-[24px] font-semibold text-black">
                                             {step.title}
                                         </div>
-                                        <div className="relative text-[14px] leading-[20px] font-normal text-[#777777]">
+                                        <div className="relative text-[16px] leading-[24px] font-normal text-[#777777]">
                                             {step.shortDescription}
                                         </div>
                                     </div>
