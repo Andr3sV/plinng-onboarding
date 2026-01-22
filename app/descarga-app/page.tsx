@@ -87,7 +87,7 @@ export default function DescargaAppPage() {
                     <MobileVideoContainer
                         videoUrl={videoUrl}
                         title="Descarga la app"
-                        showBorder={true}
+                        showBorder={false}
                     />
                 </div>
             </div>

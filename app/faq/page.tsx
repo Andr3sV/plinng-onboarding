@@ -1,14 +1,14 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
+import Image from "next/image"
 import {
     Accordion,
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion"
-import { Input } from "@/components/ui/input"
-import { Search } from "lucide-react"
 
 const faqCategories = [
     {
@@ -65,63 +65,65 @@ const faqCategories = [
 ]
 
 export default function FAQPage() {
-    const [searchQuery, setSearchQuery] = useState("")
-
-    const filteredFAQs = faqCategories.map((category) => ({
-        ...category,
-        questions: category.questions.filter(
-            (q) =>
-                q.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                q.answer.toLowerCase().includes(searchQuery.toLowerCase())
-        ),
-    })).filter((category) => category.questions.length > 0)
-
     return (
-        <div className="space-y-8 max-w-4xl mx-auto">
-            <div className="space-y-4">
-                <h1 className="text-[42px] font-bold tracking-[-1.5px]">
-                    Preguntas frecuentes
-                </h1>
-                <p className="text-[18px] leading-[28px] text-muted-foreground">
-                    Encuentra respuestas a las preguntas más comunes sobre Plinng.
-                </p>
-            </div>
+        <div className="w-full flex items-center justify-center px-4 sm:px-6 lg:px-[40px] pb-4 sm:pb-6 lg:pb-[40px]">
+            <div className="w-full max-w-6xl relative">
+                {/* Botón Siguiente en esquina superior derecha */}
+                <div className="flex justify-end mb-[56px]">
+                    <div className="rounded-[18px] bg-[#BEFF50] flex items-center justify-center py-3 px-8 text-center text-base cursor-pointer transition-all hover:opacity-90">
+                        <div className="relative leading-7 font-semibold text-[#000000]">Siguiente</div>
+                        <Image
+                            src="/assets/icons/arrow2.svg"
+                            className="h-5 w-7 ml-2"
+                            width={28}
+                            height={20}
+                            alt=""
+                        />
+                    </div>
+                </div>
 
-            <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                <Input
-                    type="search"
-                    placeholder="Buscar preguntas..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="pl-10 w-full"
-                />
-            </div>
+                {/* Contenido principal */}
+                <div className="w-full relative flex flex-col items-start justify-center gap-4">
+                    <b className="self-stretch relative tracking-[-1.5px] leading-[50px] lg:leading-[60px] text-[32px] sm:text-[36px] lg:text-[42px] font-bold">
+                        Preguntas frecuentes
+                    </b>
+                    <div className="self-stretch relative text-[16px] sm:text-[17px] lg:text-[18px] leading-[24px] sm:leading-[26px] lg:leading-[28px] text-[#2F4F4F]">
+                        Encuentra respuestas a las preguntas más comunes sobre Plinng.
+                    </div>
 
-            <div className="space-y-6">
-                {filteredFAQs.length === 0 ? (
-                    <p className="text-center text-muted-foreground py-8">
-                        No se encontraron preguntas que coincidan con tu búsqueda.
-                    </p>
-                ) : (
-                    filteredFAQs.map((category) => (
-                        <div key={category.category} className="space-y-4">
-                            <h2 className="text-2xl font-semibold">{category.category}</h2>
-                            <Accordion type="single" collapsible className="w-full">
-                                {category.questions.map((faq, index) => (
-                                    <AccordionItem key={index} value={`item-${category.category}-${index}`}>
-                                        <AccordionTrigger className="text-left">
-                                            {faq.question}
-                                        </AccordionTrigger>
-                                        <AccordionContent className="text-muted-foreground">
-                                            {faq.answer}
-                                        </AccordionContent>
-                                    </AccordionItem>
-                                ))}
-                            </Accordion>
-                        </div>
-                    ))
-                )}
+                    {/* Secciones de FAQ */}
+                    <div className="self-stretch flex flex-col gap-6 mt-4">
+                        {faqCategories.map((category) => (
+                            <div key={category.category} className="self-stretch flex flex-col gap-4">
+                                <b className="w-full relative text-[28px] tracking-[-1.5px] inline-block font-inter text-black text-left">
+                                    {category.category}
+                                </b>
+                                <Accordion type="single" collapsible className="w-full space-y-4">
+                                    {category.questions.map((faq, index) => (
+                                        <AccordionItem
+                                            key={index}
+                                            value={`item-${category.category}-${index}`}
+                                            className="rounded-[18px] border border-[#EDEEEC] border-solid bg-white border-b"
+                                        >
+                                            <AccordionTrigger className="px-8 py-4 hover:no-underline [&[data-state=open]]:rounded-t-[18px] [&[data-state=closed]]:rounded-[18px]">
+                                                <div className="flex-1 flex flex-col items-start justify-center text-left">
+                                                    <div className="self-stretch relative leading-[28px] font-semibold text-black">
+                                                        {faq.question}
+                                                    </div>
+                                                </div>
+                                            </AccordionTrigger>
+                                            <AccordionContent className="px-8 pb-4 pt-0">
+                                                <div className="self-stretch relative leading-[28px] text-[#2F4F4F]">
+                                                    {faq.answer}
+                                                </div>
+                                            </AccordionContent>
+                                        </AccordionItem>
+                                    ))}
+                                </Accordion>
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
         </div>
     )
