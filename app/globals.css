@@ -33,7 +33,7 @@
   }
   body {
     @apply text-foreground;
-    background: radial-gradient(ellipse at center 50%, rgba(190, 255, 80, 0.15) 0%, rgba(190, 255, 80, 0.08) 30%, rgba(255, 255, 255, 0) 60%, #ffffff 100%);
+    background: #ffffff;
     min-height: 100vh;
   }
 }
