@@ -55,7 +55,7 @@ export function VideoPlayer({ src, title, className, aspectRatio = "horizontal" 
         return (
             <div className={cn("flex justify-center", className)}>
                 <div
-                    className="relative rounded-lg overflow-hidden"
+                    className="relative rounded-[40px] bg-black border-[11px] border-black overflow-hidden"
                     style={{
                         width: "280px",
                         height: "550px",
@@ -99,7 +99,7 @@ export function VideoPlayer({ src, title, className, aspectRatio = "horizontal" 
     return (
         <div className={cn("flex justify-center", className)}>
             <div
-                className="relative rounded-lg overflow-hidden"
+                className="relative rounded-[40px] bg-black border-[11px] border-black overflow-hidden"
                 style={{
                     width: "100%",
                     maxWidth: "800px",

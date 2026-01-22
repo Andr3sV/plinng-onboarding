@@ -5,7 +5,7 @@ const navigationCards = [
     {
         href: "/bienvenido",
         title: "Bienvenido a Plinng",
-        description: "Conoce qué es Plinng y cómo puede ayudarte",
+        description: "Conoce cómo puede ayudarte Plinng",
         linkText: "Empezamos",
         image: "/assets/Card image.png",
     },
