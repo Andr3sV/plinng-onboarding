@@ -1,12 +1,13 @@
 "use client"
 
 import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { Menu, Home, Sparkles, Download, User, Link2, Compass, HelpCircle } from "lucide-react"
+import { Menu } from "lucide-react"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
 import Image from "next/image"
+import { usePathname } from "next/navigation"
+import { cn } from "@/lib/utils"
+import { Home, Sparkles, Download, User, Link2, Compass, HelpCircle } from "lucide-react"
 
 const navigationItems = [
     { href: "/", label: "Home", icon: Home },
@@ -18,7 +19,7 @@ const navigationItems = [
     { href: "/faq", label: "Preguntas frecuentes", icon: HelpCircle },
 ]
 
-export function Sidebar() {
+export function MobileMenu() {
     const pathname = usePathname()
 
     const NavContent = () => (
@@ -62,13 +63,32 @@ export function Sidebar() {
     )
 
     return (
-        <>
-            {/* Desktop Sidebar */}
-            <aside className="hidden lg:flex lg:flex-col lg:w-64 lg:fixed lg:inset-y-0 lg:border-r lg:bg-white">
+        <Sheet>
+            <div className="lg:hidden flex items-center gap-3 mb-[48px]">
+                <SheetTrigger asChild>
+                    <Button
+                        variant="ghost"
+                        size="icon"
+                        className="bg-background border"
+                    >
+                        <Menu className="h-6 w-6" />
+                        <span className="sr-only">Open menu</span>
+                    </Button>
+                </SheetTrigger>
+                <Link href="/" className="flex items-center">
+                    <Image
+                        src="/assets/logo-plinng.png"
+                        alt="Plinng"
+                        width={120}
+                        height={40}
+                        className="h-8 w-auto"
+                    />
+                </Link>
+            </div>
+            <SheetContent side="left" className="w-64 p-0">
                 <NavContent />
-            </aside>
-
-        </>
+            </SheetContent>
+        </Sheet>
     )
 }
 

@@ -84,7 +84,7 @@ export default function FAQPage() {
 
                 {/* Contenido principal */}
                 <div className="w-full relative flex flex-col items-start justify-center gap-4">
-                    <b className="self-stretch relative tracking-[-1.5px] leading-[50px] lg:leading-[60px] text-[32px] sm:text-[36px] lg:text-[42px] font-bold">
+                    <b className="self-stretch relative tracking-[-1.5px] leading-[50px] lg:leading-[60px] text-[42px] sm:text-[36px] lg:text-[42px] font-bold">
                         Preguntas frecuentes
                     </b>
                     <div className="self-stretch relative text-[16px] sm:text-[17px] lg:text-[18px] leading-[24px] sm:leading-[26px] lg:leading-[28px] text-[#2F4F4F]">
@@ -126,7 +126,7 @@ export default function FAQPage() {
                 </div>
 
                 {/* Botón Siguiente al final - Mobile */}
-                <div className="flex lg:hidden mt-8 mb-4">
+                <div className="flex lg:hidden mt-8 mb-[80px]">
                     <div className="rounded-[18px] bg-[#BEFF50] flex items-center justify-center py-3 px-8 text-center text-base cursor-pointer transition-all hover:opacity-90 w-full">
                         <div className="relative leading-7 font-semibold text-[#000000]">Siguiente</div>
                         <Image

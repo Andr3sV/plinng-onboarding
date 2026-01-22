@@ -240,7 +240,7 @@ export default function ConectaCuentasPage() {
                 </div>
 
                 {/* Botón Siguiente al final - Mobile */}
-                <div className="flex lg:hidden mt-8 mb-4">
+                <div className="flex lg:hidden mt-8 mb-[80px]">
                     <Link href="/tour" className="w-full">
                         <div className="rounded-[18px] bg-[#BEFF50] flex items-center justify-center py-3 px-8 text-center text-base cursor-pointer transition-all hover:opacity-90 w-full">
                             <div className="relative leading-7 font-semibold text-[#000000]">Siguiente</div>
