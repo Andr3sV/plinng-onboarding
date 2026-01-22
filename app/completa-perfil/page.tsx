@@ -21,27 +21,57 @@ export default function CompletaPerfilPage() {
     const steps = [
         {
             id: "step-1",
-            title: "Paso 1: Información básica",
-            description: "Completa tu nombre, email y datos de contacto para personalizar tu experiencia.",
-            videoUrl: "https://www.canva.com/design/DAG_C5KS3oU/EZD4sgA4sWXk877F3AgAJg/watch",
+            title: "Paso 1: Welcome Brief",
+            description: "Bienvenido a Plinng. Comienza tu recorrido aquí.",
+            videoUrl: "/videos/Welcome Brief.mp4",
         },
         {
             id: "step-2",
-            title: "Paso 2: Foto de perfil",
-            description: "Sube una foto de perfil para que tu asistente AI pueda reconocerte mejor.",
+            title: "Paso 2: Información sobre tu negocio",
+            description: "Comparte los detalles esenciales de tu negocio.",
             videoUrl: "https://www.canva.com/design/DAG_FlNWuV4/yDduRWFmCREjTzqAuyvPCQ/watch?utm_content=DAG_FlNWuV4&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h351124928d",
         },
         {
             id: "step-3",
-            title: "Paso 3: Preferencias básica",
-            description: "Configura tus preferencias de notificaciones y ajustes de privacidad.",
-            videoUrl: "https://www.canva.com/design/DAG_FlNWuV4/yDduRWFmCREjTzqAuyvPCQ/watch?utm_content=DAG_FlNWuV4&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h351124928d",
+            title: "Paso 3: Añade tus redes sociales",
+            description: "Conecta tus redes sociales para que Plinng pueda trabajar con ellas.",
+            videoUrl: "/videos/Añade tus redes sociales.mp4",
         },
         {
             id: "step-4",
-            title: "Paso 4: Verificación",
-            description: "Verifica tu cuenta para activar todas las funciones de Plinng.",
-            videoUrl: "https://www.canva.com/design/DAG_FlNWuV4/yDduRWFmCREjTzqAuyvPCQ/watch?utm_content=DAG_FlNWuV4&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h351124928d",
+            title: "Paso 4: Hablemos sobre tu negocio",
+            description: "Cuéntanos sobre tu negocio y cómo funciona.",
+            videoUrl: "/videos/Hablemos sobre tu negocio.mp4",
+        },
+        {
+            id: "step-5",
+            title: "Paso 5: Exploremos tus productos y servicios",
+            description: "Describe tus productos y servicios para que Plinng los conozca mejor.",
+            videoUrl: "/videos/Exploremos tu productos y servicios.mp4",
+        },
+        {
+            id: "step-6",
+            title: "Paso 6: Analicemos quién es tu cliente objetivo",
+            description: "Define tu cliente ideal para crear contenido dirigido.",
+            videoUrl: "/videos/Analicemos quien es tu cliente objetivo (1).mp4",
+        },
+        {
+            id: "step-7",
+            title: "Paso 7: Fechas relevantes de tu negocio",
+            description: "Marca las fechas importantes para tu negocio.",
+            videoUrl: "/videos/Fechas relevantes de tu negocio.mp4",
+        },
+        {
+            id: "step-8",
+            title: "Paso 8: Construyamos tu imagen",
+            description: "Define la identidad visual de tu marca.",
+            videoUrl: "/videos/Construyamos tu imagen.mp4",
+        },
+        {
+            id: "step-9",
+            title: "Paso 9: Final Brief",
+            description: "Finaliza la configuración de tu perfil.",
+            videoUrl: "/videos/Final Brief.mp4",
         },
     ]
 
@@ -66,6 +96,11 @@ export default function CompletaPerfilPage() {
     }
 
     const getEmbedUrl = (url: string) => {
+        // Si es un video local (empieza con /videos/), devolver la URL directamente
+        if (url.startsWith('/videos/')) {
+            return url
+        }
+
         // Canva: https://www.canva.com/design/DESIGN_ID/...
         const canvaMatch = url.match(/canva\.com\/design\/([a-zA-Z0-9_-]+)/)
         if (canvaMatch) {
@@ -172,31 +207,49 @@ export default function CompletaPerfilPage() {
                                 justifyContent: 'center',
                             }}
                         >
-                            {steps.map((step, index) => (
-                                <div
-                                    key={step.id}
-                                    className={`absolute inset-0 w-full h-full transition-opacity duration-300 ${selectedStep === index && !isTransitioning && selectedStep !== null
-                                        ? "opacity-100 z-10"
-                                        : "opacity-0 z-0"
-                                        }`}
-                                >
-                                    <iframe
-                                        src={getEmbedUrl(step.videoUrl)}
-                                        title={step.title}
-                                        style={{
-                                            width: '100%',
-                                            height: '100%',
-                                            border: 'none',
-                                            margin: '0',
-                                            padding: '0',
-                                            display: 'block',
-                                        }}
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowFullScreen
-                                        loading="lazy"
-                                    />
-                                </div>
-                            ))}
+                            {steps.map((step, index) => {
+                                const videoUrl = getEmbedUrl(step.videoUrl)
+                                const isVideoLocal = videoUrl.startsWith('/videos/')
+
+                                return (
+                                    <div
+                                        key={step.id}
+                                        className={`absolute inset-0 w-full h-full transition-opacity duration-300 ${selectedStep === index && !isTransitioning && selectedStep !== null
+                                            ? "opacity-100 z-10"
+                                            : "opacity-0 z-0"
+                                            }`}
+                                    >
+                                        {isVideoLocal ? (
+                                            <video
+                                                src={videoUrl}
+                                                title={step.title}
+                                                controls
+                                                style={{
+                                                    width: '100%',
+                                                    height: '100%',
+                                                    objectFit: 'cover',
+                                                }}
+                                            />
+                                        ) : (
+                                            <iframe
+                                                src={videoUrl}
+                                                title={step.title}
+                                                style={{
+                                                    width: '100%',
+                                                    height: '100%',
+                                                    border: 'none',
+                                                    margin: '0',
+                                                    padding: '0',
+                                                    display: 'block',
+                                                }}
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowFullScreen
+                                                loading="lazy"
+                                            />
+                                        )}
+                                    </div>
+                                )
+                            })}
                         </div>
                     </div>
                 </div>

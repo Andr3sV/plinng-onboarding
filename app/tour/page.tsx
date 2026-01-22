@@ -23,31 +23,31 @@ export default function TourPage() {
             id: "step-1",
             title: "Calendario",
             shortDescription: "Gestiona tus publicaciones programadas",
-            videoUrl: "https://drive.google.com/file/d/14wUKH-jaEBwFai0fJSQnpG_F0ZH6ynvG/view?usp=sharing",
+            videoUrl: "/videos/Calendario - Tour.mp4",
         },
         {
             id: "step-2",
             title: "Maya",
             shortDescription: "Asistente AI de marketing",
-            videoUrl: "https://drive.google.com/file/d/14wUKH-jaEBwFai0fJSQnpG_F0ZH6ynvG/view?usp=sharing",
+            videoUrl: "/videos/Maya - Tour.mp4",
         },
         {
             id: "step-3",
             title: "Propuestas: feedback",
             shortDescription: "Aprobar contenido generado",
-            videoUrl: "https://drive.google.com/file/d/14wUKH-jaEBwFai0fJSQnpG_F0ZH6ynvG/view?usp=sharing",
+            videoUrl: "/videos/Feedback - Tour.mp4",
         },
         {
             id: "step-4",
             title: "Propuestas: solicitar cambios",
             shortDescription: "Personalizar propuestas",
-            videoUrl: "https://drive.google.com/file/d/14wUKH-jaEBwFai0fJSQnpG_F0ZH6ynvG/view?usp=sharing",
+            videoUrl: "/videos/Solicitar cambios - Maya.mp4",
         },
         {
             id: "step-5",
             title: "Sophia",
             shortDescription: "Recepcionista IA 24/7 y gestora de reseñas",
-            videoUrl: "https://drive.google.com/file/d/14wUKH-jaEBwFai0fJSQnpG_F0ZH6ynvG/view?usp=sharing",
+            videoUrl: "/videos/Sophia.mp4",
         },
         {
             id: "step-6",
@@ -84,6 +84,12 @@ export default function TourPage() {
     }
 
     const getEmbedUrl = (url: string) => {
+        // Si es un video local (empieza con /videos/), devolver la URL directamente
+        if (url.startsWith('/videos/')) {
+            return url
+        }
+
+        // Google Drive share link
         const fileIdMatch = url.match(/\/d\/([a-zA-Z0-9_-]+)/)
         if (fileIdMatch) {
             return `https://drive.google.com/file/d/${fileIdMatch[1]}/preview`
@@ -162,31 +168,49 @@ export default function TourPage() {
                                 justifyContent: 'center',
                             }}
                         >
-                            {steps.map((step, index) => (
-                                <div
-                                    key={step.id}
-                                    className={`absolute inset-0 w-full h-full transition-opacity duration-300 ${selectedStep === index && !isTransitioning && selectedStep !== null
-                                        ? "opacity-100 z-10"
-                                        : "opacity-0 z-0"
-                                        }`}
-                                >
-                                    <iframe
-                                        src={getEmbedUrl(step.videoUrl)}
-                                        title={step.title}
-                                        style={{
-                                            width: '100%',
-                                            height: '100%',
-                                            border: 'none',
-                                            margin: '0',
-                                            padding: '0',
-                                            display: 'block',
-                                        }}
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowFullScreen
-                                        loading="lazy"
-                                    />
-                                </div>
-                            ))}
+                            {steps.map((step, index) => {
+                                const videoUrl = getEmbedUrl(step.videoUrl)
+                                const isVideoLocal = videoUrl.startsWith('/videos/')
+                                
+                                return (
+                                    <div
+                                        key={step.id}
+                                        className={`absolute inset-0 w-full h-full transition-opacity duration-300 ${selectedStep === index && !isTransitioning && selectedStep !== null
+                                            ? "opacity-100 z-10"
+                                            : "opacity-0 z-0"
+                                            }`}
+                                    >
+                                        {isVideoLocal ? (
+                                            <video
+                                                src={videoUrl}
+                                                title={step.title}
+                                                controls
+                                                style={{
+                                                    width: '100%',
+                                                    height: '100%',
+                                                    objectFit: 'cover',
+                                                }}
+                                            />
+                                        ) : (
+                                            <iframe
+                                                src={videoUrl}
+                                                title={step.title}
+                                                style={{
+                                                    width: '100%',
+                                                    height: '100%',
+                                                    border: 'none',
+                                                    margin: '0',
+                                                    padding: '0',
+                                                    display: 'block',
+                                                }}
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowFullScreen
+                                                loading="lazy"
+                                            />
+                                        )}
+                                    </div>
+                                )
+                            })}
                         </div>
                     </div>
                 </div>
