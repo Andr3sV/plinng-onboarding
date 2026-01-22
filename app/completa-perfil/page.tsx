@@ -1,13 +1,21 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { MobileVideoContainer } from "@/components/mobile-video-container"
 
 export default function CompletaPerfilPage() {
-    const [selectedStep, setSelectedStep] = useState(0)
+    const [selectedStep, setSelectedStep] = useState<number | null>(null)
     const [isTransitioning, setIsTransitioning] = useState(false)
+    const videoContainerRef = useRef<HTMLDivElement>(null)
+
+    // En desktop, seleccionar el primer paso por defecto
+    useEffect(() => {
+        if (window.innerWidth >= 1024) {
+            setSelectedStep(0)
+        }
+    }, [])
 
     // Pasos del perfil - cada uno tiene su propio video
     const steps = [
@@ -44,6 +52,16 @@ export default function CompletaPerfilPage() {
         setTimeout(() => {
             setSelectedStep(index)
             setIsTransitioning(false)
+
+            // Scroll automático al video en móvil
+            if (videoContainerRef.current && window.innerWidth < 1024) {
+                setTimeout(() => {
+                    videoContainerRef.current?.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    })
+                }, 100)
+            }
         }, 300)
     }
 
@@ -142,7 +160,7 @@ export default function CompletaPerfilPage() {
                     </div>
 
                     {/* Video Container with Animation */}
-                    <div className="relative shrink-0">
+                    <div ref={videoContainerRef} className="relative shrink-0">
                         <div
                             className="relative rounded-[40px] bg-[#EDEEEC] border-[11px] border-black"
                             style={{
@@ -157,7 +175,7 @@ export default function CompletaPerfilPage() {
                             {steps.map((step, index) => (
                                 <div
                                     key={step.id}
-                                    className={`absolute inset-0 w-full h-full transition-opacity duration-300 ${selectedStep === index && !isTransitioning
+                                    className={`absolute inset-0 w-full h-full transition-opacity duration-300 ${selectedStep === index && !isTransitioning && selectedStep !== null
                                         ? "opacity-100 z-10"
                                         : "opacity-0 z-0"
                                         }`}
