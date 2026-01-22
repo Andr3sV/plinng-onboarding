@@ -70,10 +70,10 @@ export default function DescargaAppPage() {
                         </div>
 
                         {/* QR Code section */}
-                        <div className="self-stretch relative text-[16px] sm:text-[17px] lg:text-[18px] leading-[24px] sm:leading-[26px] lg:leading-[28px] text-[#2F4F4F]">
+                        <div className="hidden lg:block self-stretch relative text-[16px] sm:text-[17px] lg:text-[18px] leading-[24px] sm:leading-[26px] lg:leading-[28px] text-[#2F4F4F]">
                             o puedes escanear el código QR con tu dispositivo móvil:
                         </div>
-                        <div className="rounded-[30px] bg-[#BEFF50] flex flex-col items-center justify-center p-4 gap-2 text-center text-sm w-fit">
+                        <div className="hidden lg:flex rounded-[30px] bg-[#BEFF50] flex-col items-center justify-center p-4 gap-2 text-center text-sm w-fit">
                             <Image
                                 src="/assets/download-plinng/QR code.png"
                                 className="w-[100px] h-[100px] relative rounded-[10px] max-h-full object-cover"
