@@ -9,7 +9,7 @@ import { VideoPlayer } from "@/components/video-player"
 const accountTypes = [
     {
         id: "facebook-instagram",
-        title: "Facebook/Instagram",
+        title: "Facebook/ Instagram",
     },
     {
         id: "google-empresa",
@@ -17,7 +17,7 @@ const accountTypes = [
     },
     {
         id: "dominio-hosting",
-        title: "Dominio/Hosting",
+        title: "Dominio/ Hosting",
     },
 ]
 
@@ -117,29 +117,29 @@ export default function ConectaCuentasPage() {
 
                 {/* Contenido principal */}
                 <div className="w-full relative flex items-start text-left text-base text-black">
-                    <div className="flex-1 flex flex-col items-start justify-center gap-4">
-                        <b className="self-stretch relative text-[42px] tracking-[-1.5px] leading-[60px] font-bold">
+                    <div className="flex-1 flex flex-col items-start justify-center gap-4 w-full">
+                        <b className="self-stretch relative tracking-[-1.5px] leading-[50px] lg:leading-[60px] text-[42px] sm:text-[36px] lg:text-[42px] font-bold">
                             Conecta tus cuentas
                         </b>
-                        <div className="self-stretch relative text-[18px] leading-[28px] text-[#2F4F4F]">
+                        <div className="self-stretch relative text-[16px] sm:text-[17px] lg:text-[18px] leading-[24px] sm:leading-[26px] lg:leading-[28px] text-[#2F4F4F]">
                             Para que Plinng pueda trabajar por ti, <strong>necesitamos conectar tus herramientas</strong>.
                             Así podremos crear, programar y analizar tu contenido de forma automática, siempre con tu aprobación.
                         </div>
 
                         {/* Cards de selección */}
-                        <div className="self-stretch flex items-start gap-4 text-center">
+                        <div className="self-stretch flex flex-row items-stretch gap-3 sm:gap-4 text-center">
                             {accountTypes.map((account) => {
                                 const isSelected = selectedAccount === account.id
                                 return (
                                     <div
                                         key={account.id}
                                         onClick={() => handleAccountClick(account.id)}
-                                        className={`self-stretch flex-1 rounded-[18px] flex items-start justify-center p-4 cursor-pointer transition-all ${isSelected
+                                        className={`flex-1 rounded-[18px] flex items-center justify-center py-3 px-2 sm:px-4 cursor-pointer transition-all min-h-[48px] ${isSelected
                                             ? "bg-[#BEFF50]"
                                             : "border border-[#EDEEEC] border-solid bg-white hover:bg-[#EDEEEC]/50"
                                             }`}
                                     >
-                                        <div className="self-stretch w-full relative leading-[28px] font-semibold flex items-center justify-center shrink-0">
+                                        <div className="w-full relative text-[12px] leading-[18px] font-semibold flex items-center justify-center shrink-0 text-center">
                                             {account.title}
                                         </div>
                                     </div>
