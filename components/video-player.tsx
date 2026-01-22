@@ -10,6 +10,9 @@ interface VideoPlayerProps {
 }
 
 export function VideoPlayer({ src, title, className, aspectRatio = "horizontal" }: VideoPlayerProps) {
+    // Detectar si es un video local (empieza con / o no tiene http/https)
+    const isLocalVideo = src.startsWith('/') || (!src.startsWith('http://') && !src.startsWith('https://'))
+
     // Convert URLs to embed format
     const getEmbedUrl = (url: string) => {
         // Canva: https://www.canva.com/design/DESIGN_ID/...
@@ -58,14 +61,28 @@ export function VideoPlayer({ src, title, className, aspectRatio = "horizontal" 
                         height: "550px",
                     }}
                 >
-                    <iframe
-                        src={embedUrl}
-                        title={title || "Video"}
-                        className="w-full h-full border-0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        loading="lazy"
-                    />
+                    {isLocalVideo ? (
+                        <video
+                            src={src}
+                            title={title || "Video"}
+                            controls
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'cover',
+                            }}
+                            playsInline
+                        />
+                    ) : (
+                        <iframe
+                            src={embedUrl}
+                            title={title || "Video"}
+                            className="w-full h-full border-0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            loading="lazy"
+                        />
+                    )}
                 </div>
             </div>
         )
@@ -90,14 +107,27 @@ export function VideoPlayer({ src, title, className, aspectRatio = "horizontal" 
                     height: 0,
                 }}
             >
-                <iframe
-                    src={embedUrl}
-                    title={title || "Video"}
-                    className="absolute top-0 left-0 w-full h-full border-0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    loading="lazy"
-                />
+                {isLocalVideo ? (
+                    <video
+                        src={src}
+                        title={title || "Video"}
+                        controls
+                        className="absolute top-0 left-0 w-full h-full"
+                        style={{
+                            objectFit: 'cover',
+                        }}
+                        playsInline
+                    />
+                ) : (
+                    <iframe
+                        src={embedUrl}
+                        title={title || "Video"}
+                        className="absolute top-0 left-0 w-full h-full border-0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        loading="lazy"
+                    />
+                )}
             </div>
         </div>
     )
