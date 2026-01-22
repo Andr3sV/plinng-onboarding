@@ -15,7 +15,7 @@ export default function CompletaPerfilPage() {
             id: "step-1",
             title: "Paso 1: Información básica",
             description: "Completa tu nombre, email y datos de contacto para personalizar tu experiencia.",
-            videoUrl: "https://vimeo.com/613729649",
+            videoUrl: "https://www.canva.com/design/DAG_C5KS3oU/EZD4sgA4sWXk877F3AgAJg/watch",
         },
         {
             id: "step-2",
