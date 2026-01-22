@@ -2,9 +2,10 @@ interface MobileVideoContainerProps {
     videoUrl: string
     title: string
     className?: string
+    showBorder?: boolean
 }
 
-export function MobileVideoContainer({ videoUrl, title, className }: MobileVideoContainerProps) {
+export function MobileVideoContainer({ videoUrl, title, className, showBorder = true }: MobileVideoContainerProps) {
     const getEmbedUrl = (url: string) => {
         // Canva: https://www.canva.com/design/DESIGN_ID/...
         const canvaMatch = url.match(/canva\.com\/design\/([a-zA-Z0-9_-]+)/)
@@ -46,7 +47,7 @@ export function MobileVideoContainer({ videoUrl, title, className }: MobileVideo
         <div className={`relative shrink-0 ${className || ''}`}>
             {/* Contenedor con borde y fondo - dimensiones exactas */}
             <div
-                className="relative rounded-[40px] bg-black border-[11px] border-black"
+                className={`relative rounded-[40px] bg-black ${showBorder ? 'border-[11px] border-black' : ''}`}
                 style={{
                     width: '277.3px',
                     height: '600px',

@@ -3,7 +3,7 @@ import Image from "next/image"
 import { MobileVideoContainer } from "@/components/mobile-video-container"
 
 export default function DescargaAppPage() {
-    const videoUrl = "/videos/accesos-web.mp4"
+    const videoUrl = "/videos/bajar-app.mp4"
 
     return (
         <div className="w-full flex items-center justify-center px-4 sm:px-6 lg:px-[40px] pb-4 sm:pb-6 lg:pb-[40px]">
@@ -87,6 +87,7 @@ export default function DescargaAppPage() {
                     <MobileVideoContainer
                         videoUrl={videoUrl}
                         title="Descarga la app"
+                        showBorder={true}
                     />
                 </div>
             </div>
