@@ -70,16 +70,27 @@ export function Sidebar() {
 
             {/* Mobile Drawer */}
             <Sheet>
-                <SheetTrigger asChild>
-                    <Button
-                        variant="ghost"
-                        size="icon"
-                        className="lg:hidden fixed top-4 left-4 z-50 bg-background border"
-                    >
-                        <Menu className="h-6 w-6" />
-                        <span className="sr-only">Open menu</span>
-                    </Button>
-                </SheetTrigger>
+                <div className="lg:hidden fixed top-4 left-4 z-50 flex items-center gap-3">
+                    <SheetTrigger asChild>
+                        <Button
+                            variant="ghost"
+                            size="icon"
+                            className="bg-background border"
+                        >
+                            <Menu className="h-6 w-6" />
+                            <span className="sr-only">Open menu</span>
+                        </Button>
+                    </SheetTrigger>
+                    <Link href="/" className="flex items-center">
+                        <Image
+                            src="/assets/logo-plinng.png"
+                            alt="Plinng"
+                            width={120}
+                            height={40}
+                            className="h-8 w-auto"
+                        />
+                    </Link>
+                </div>
                 <SheetContent side="left" className="w-64 p-0">
                     <NavContent />
                 </SheetContent>
