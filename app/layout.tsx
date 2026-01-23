@@ -20,11 +20,20 @@ export const metadata: Metadata = {
         description: "Invierte unos minutos en poner en marcha tu app de Plinng y ahorra horas de trabajo cada semana.",
         type: "website",
         locale: "es_ES",
+        images: [
+            {
+                url: "/assets/Welcome to Plinng/Card image.png",
+                width: 1200,
+                height: 630,
+                alt: "Ponte en marcha con Plinng",
+            },
+        ],
     },
     twitter: {
-        card: "summary",
+        card: "summary_large_image",
         title: "Ponte en marcha con Plinng",
         description: "Invierte unos minutos en poner en marcha tu app de Plinng y ahorra horas de trabajo cada semana.",
+        images: ["/assets/Welcome to Plinng/Card image.png"],
     },
 }
 
