@@ -161,16 +161,6 @@ const faqCategories = [
         category: "General",
         questions: [
             {
-                question: "¿Qué es Plinng?",
-                answer: "Plinng es una aplicación que te permite tener tu propio asistente AI de marketing que genera posts en redes sociales y posicionamiento SEO, además de un recepcionista AI que atiende llamadas y mensajes de WhatsApp.",
-                type: "text",
-            },
-            {
-                question: "¿Cómo funciona el asistente AI de marketing?",
-                answer: "El asistente AI analiza tu negocio y genera contenido personalizado para tus redes sociales, optimizado para SEO y listo para publicar. Puedes revisar y editar el contenido antes de publicarlo.",
-                type: "text",
-            },
-            {
                 question: "¿Es seguro conectar mis cuentas?",
                 answer: "Sí, utilizamos protocolos de seguridad estándar de la industria y solo solicitamos los permisos necesarios para publicar contenido. Tus credenciales están encriptadas y nunca las compartimos con terceros.",
                 type: "text",
@@ -438,20 +428,6 @@ export default function FAQPage() {
     return (
         <div className="w-full flex items-center justify-center px-4 sm:px-6 lg:px-[40px] pb-4 sm:pb-6 lg:pb-[40px]">
             <div className="w-full max-w-6xl relative">
-                {/* Botón Siguiente en esquina superior derecha - Desktop */}
-                <div className="hidden lg:flex justify-end mb-[56px]">
-                    <div className="rounded-[18px] bg-[#BEFF50] flex items-center justify-center py-3 px-8 text-center text-base cursor-pointer transition-all hover:opacity-90">
-                        <div className="relative leading-7 font-semibold text-[#000000]">Siguiente</div>
-                        <Image
-                            src="/assets/icons/arrow2.svg"
-                            className="h-5 w-7 ml-2"
-                            width={28}
-                            height={20}
-                            alt=""
-                        />
-                    </div>
-                </div>
-
                 {/* Contenido principal */}
                 <div className="w-full relative flex flex-col items-start justify-center gap-4">
                     <b className="self-stretch relative tracking-[-1.5px] leading-[50px] lg:leading-[60px] text-[42px] sm:text-[36px] lg:text-[42px] font-bold">
@@ -549,20 +525,6 @@ export default function FAQPage() {
                                 </Accordion>
                             </div>
                         ))}
-                    </div>
-                </div>
-
-                {/* Botón Siguiente al final - Mobile */}
-                <div className="flex lg:hidden mt-8 mb-[80px]">
-                    <div className="rounded-[18px] bg-[#BEFF50] flex items-center justify-center py-3 px-8 text-center text-base cursor-pointer transition-all hover:opacity-90 w-full">
-                        <div className="relative leading-7 font-semibold text-[#000000]">Siguiente</div>
-                        <Image
-                            src="/assets/icons/arrow2.svg"
-                            className="h-5 w-7 ml-2"
-                            width={28}
-                            height={20}
-                            alt=""
-                        />
                     </div>
                 </div>
             </div>

@@ -103,11 +103,11 @@ export default function TourPage() {
                 {/* Botón Siguiente en esquina superior derecha - Desktop */}
                 <div className="hidden lg:flex justify-end mb-[56px]">
                     <Link href="/faq">
-                        <div className="rounded-[18px] bg-[#BEFF50] flex items-center justify-center py-3 px-8 text-center text-base cursor-pointer transition-all hover:opacity-90">
-                            <div className="relative leading-7 font-semibold text-[#000000]">Siguiente</div>
+                        <div className="rounded-[18px] bg-black flex items-center justify-center py-3 px-8 text-center text-base cursor-pointer transition-all hover:opacity-90">
+                            <div className="relative leading-7 font-semibold text-white">Siguiente</div>
                             <Image
                                 src="/assets/icons/arrow2.svg"
-                                className="h-5 w-7 ml-2"
+                                className="h-5 w-7 ml-2 brightness-0 invert"
                                 width={28}
                                 height={20}
                                 alt=""
@@ -218,11 +218,11 @@ export default function TourPage() {
                 {/* Botón Siguiente al final - Mobile */}
                 <div className="flex lg:hidden mt-8 mb-[80px]">
                     <Link href="/faq" className="w-full">
-                        <div className="rounded-[18px] bg-[#BEFF50] flex items-center justify-center py-3 px-8 text-center text-base cursor-pointer transition-all hover:opacity-90 w-full">
-                            <div className="relative leading-7 font-semibold text-[#000000]">Siguiente</div>
+                        <div className="rounded-[18px] bg-black flex items-center justify-center py-3 px-8 text-center text-base cursor-pointer transition-all hover:opacity-90 w-full">
+                            <div className="relative leading-7 font-semibold text-white">Siguiente</div>
                             <Image
                                 src="/assets/icons/arrow2.svg"
-                                className="h-5 w-7 ml-2"
+                                className="h-5 w-7 ml-2 brightness-0 invert"
                                 width={28}
                                 height={20}
                                 alt=""
