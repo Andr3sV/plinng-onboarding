@@ -9,9 +9,23 @@ import { PostHogProvider } from "@/components/posthog-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-    title: "Plinng - Onboarding",
-    description: "Guía paso a paso para configurar tu app de Plinng",
+    title: "Ponte en marcha con Plinng",
+    description: "Invierte unos minutos en poner en marcha tu app de Plinng y ahorra horas de trabajo cada semana.",
     viewport: "width=device-width, initial-scale=1, maximum-scale=5",
+    icons: {
+        icon: "/assets/favicon.svg",
+    },
+    openGraph: {
+        title: "Ponte en marcha con Plinng",
+        description: "Invierte unos minutos en poner en marcha tu app de Plinng y ahorra horas de trabajo cada semana.",
+        type: "website",
+        locale: "es_ES",
+    },
+    twitter: {
+        card: "summary",
+        title: "Ponte en marcha con Plinng",
+        description: "Invierte unos minutos en poner en marcha tu app de Plinng y ahorra horas de trabajo cada semana.",
+    },
 }
 
 export default function RootLayout({
