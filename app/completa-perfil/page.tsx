@@ -41,13 +41,13 @@ export default function CompletaPerfilPage() {
             id: "step-4",
             title: "Paso 4: Hablemos sobre tu negocio",
             description: "Cuéntanos sobre tu negocio y cómo funciona.",
-            videoUrl: "/videos/Hablemos sobre tu negocio.mp4",
+            videoUrl: "/videos/Hablemos de tu negocio final.mp4",
         },
         {
             id: "step-5",
             title: "Paso 5: Exploremos tus productos y servicios",
             description: "Describe tus productos y servicios para que Plinng los conozca mejor.",
-            videoUrl: "/videos/Exploremos tu productos y servicios.mp4",
+            videoUrl: "/videos/Exploremos tus productos y servicios final.mp4",
         },
         {
             id: "step-6",
@@ -59,7 +59,7 @@ export default function CompletaPerfilPage() {
             id: "step-7",
             title: "Paso 7: Fechas relevantes de tu negocio",
             description: "Marca las fechas importantes para tu negocio.",
-            videoUrl: "/videos/Fechas relevantes de tu negocio.mp4",
+            videoUrl: "/videos/Fechas relevantes para tu negocio final .mp4",
         },
         {
             id: "step-8",

@@ -53,13 +53,13 @@ export default function TourPage() {
             id: "step-6",
             title: "Identidad Digital",
             shortDescription: "Configura tu marca",
-            videoUrl: "https://drive.google.com/file/d/14wUKH-jaEBwFai0fJSQnpG_F0ZH6ynvG/view?usp=sharing",
+            videoUrl: "/videos/Identidad digital - Tour.mp4",
         },
         {
             id: "step-7",
             title: "Galería",
             shortDescription: "Organiza tus recursos visuales",
-            videoUrl: "https://drive.google.com/file/d/14wUKH-jaEBwFai0fJSQnpG_F0ZH6ynvG/view?usp=sharing",
+            videoUrl: "/videos/Galeria - Tour.mp4",
         },
     ]
 
