@@ -1,7 +1,5 @@
 "use client"
 
-import { useState } from "react"
-import Link from "next/link"
 import Image from "next/image"
 import {
     Accordion,
@@ -9,6 +7,8 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion"
+import { MobileVideoContainer } from "@/components/mobile-video-container"
+import { VideoPlayer } from "@/components/video-player"
 
 const faqCategories = [
     {
@@ -17,14 +17,17 @@ const faqCategories = [
             {
                 question: "¿Qué es Plinng?",
                 answer: "Plinng es una aplicación que te permite tener tu propio asistente AI de marketing que genera posts en redes sociales y posicionamiento SEO, además de un recepcionista AI que atiende llamadas y mensajes de WhatsApp.",
+                type: "text",
             },
             {
                 question: "¿Cómo funciona el asistente AI de marketing?",
                 answer: "El asistente AI analiza tu negocio y genera contenido personalizado para tus redes sociales, optimizado para SEO y listo para publicar. Puedes revisar y editar el contenido antes de publicarlo.",
+                type: "text",
             },
             {
                 question: "¿Es seguro conectar mis cuentas?",
                 answer: "Sí, utilizamos protocolos de seguridad estándar de la industria y solo solicitamos los permisos necesarios para publicar contenido. Tus credenciales están encriptadas y nunca las compartimos con terceros.",
+                type: "text",
             },
         ],
     },
@@ -34,14 +37,24 @@ const faqCategories = [
             {
                 question: "¿Cuánto tiempo toma configurar la app?",
                 answer: "La configuración inicial toma aproximadamente 10-15 minutos. Esto incluye completar tu perfil, conectar tus cuentas y realizar el tour inicial.",
+                type: "text",
             },
             {
                 question: "¿Puedo cambiar la configuración después?",
                 answer: "Sí, puedes modificar cualquier configuración en cualquier momento desde el menú de ajustes de la aplicación.",
+                type: "text",
             },
             {
-                question: "¿Qué redes sociales puedo conectar?",
-                answer: "Actualmente puedes conectar Instagram, Facebook, Twitter y LinkedIn. Estamos trabajando en agregar más plataformas.",
+                question: "Olvidé mi contraseña de Facebook",
+                answer: "",
+                type: "video-horizontal",
+                videoUrl: "/videos/Contraseña Facebook (1).mp4",
+            },
+            {
+                question: "Olvidé mi contraseña de Plinng",
+                answer: "",
+                type: "video",
+                videoUrl: "/videos/Contraseña Plinng (1).mp4",
             },
         ],
     },
@@ -51,14 +64,17 @@ const faqCategories = [
             {
                 question: "¿El recepcionista AI puede responder cualquier pregunta?",
                 answer: "El recepcionista AI está entrenado con información sobre tu negocio que tú proporcionas. Puede responder preguntas frecuentes, tomar pedidos, agendar citas y más. Para consultas complejas, puede transferir la conversación a ti.",
+                type: "text",
             },
             {
                 question: "¿Puedo personalizar el tono de las publicaciones?",
                 answer: "Sí, puedes configurar el tono, estilo y temas de las publicaciones según tu marca y preferencias en la sección de configuración.",
+                type: "text",
             },
             {
                 question: "¿Cómo funciona el posicionamiento SEO?",
                 answer: "El asistente AI analiza las mejores prácticas de SEO y optimiza tu contenido web y publicaciones para mejorar tu visibilidad en los motores de búsqueda.",
+                type: "text",
             },
         ],
     },
@@ -113,9 +129,26 @@ export default function FAQPage() {
                                                 </div>
                                             </AccordionTrigger>
                                             <AccordionContent className="px-8 pb-4 pt-0">
-                                                <div className="self-stretch relative leading-[28px] text-[#2F4F4F]">
-                                                    {faq.answer}
-                                                </div>
+                                                {faq.type === "video" && faq.videoUrl ? (
+                                                    <div className="flex justify-center items-center py-4">
+                                                        <MobileVideoContainer
+                                                            videoUrl={faq.videoUrl}
+                                                            title={faq.question}
+                                                        />
+                                                    </div>
+                                                ) : faq.type === "video-horizontal" && faq.videoUrl ? (
+                                                    <div className="w-full py-4">
+                                                        <VideoPlayer
+                                                            src={faq.videoUrl}
+                                                            title={faq.question}
+                                                            aspectRatio="horizontal"
+                                                        />
+                                                    </div>
+                                                ) : (
+                                                    <div className="self-stretch relative leading-[28px] text-[#2F4F4F]">
+                                                        {faq.answer}
+                                                    </div>
+                                                )}
                                             </AccordionContent>
                                         </AccordionItem>
                                     ))}
