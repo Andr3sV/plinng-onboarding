@@ -29,7 +29,7 @@ export default function CompletaPerfilPage() {
             id: "step-2",
             title: "Paso 2: Información sobre tu negocio",
             description: "Comparte los detalles esenciales de tu negocio.",
-            videoUrl: "https://www.canva.com/design/DAG_FlNWuV4/yDduRWFmCREjTzqAuyvPCQ/watch?utm_content=DAG_FlNWuV4&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h351124928d",
+            videoUrl: "/videos/Información General - Brief.mp4",
         },
         {
             id: "step-3",
