@@ -1,29 +1,7 @@
 "use client"
 
 import { useEffect } from "react"
-import { usePathname, useSearchParams } from "next/navigation"
-import { Suspense } from "react"
 import posthog from "posthog-js"
-
-function PostHogPageView() {
-    const pathname = usePathname()
-    const searchParams = useSearchParams()
-
-    useEffect(() => {
-        // Capturar pageviews cuando cambia la ruta
-        if (pathname && typeof window !== "undefined") {
-            let url = window.origin + pathname
-            if (searchParams && searchParams.toString()) {
-                url = url + `?${searchParams.toString()}`
-            }
-            posthog.capture("$pageview", {
-                $current_url: url,
-            })
-        }
-    }, [pathname, searchParams])
-
-    return null
-}
 
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
     useEffect(() => {
@@ -35,23 +13,17 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
             if (posthogKey && posthogHost) {
                 posthog.init(posthogKey, {
                     api_host: posthogHost,
+                    defaults: '2025-11-30', // Habilita autocapture y pageviews para SPAs
+                    capture_pageview: 'history_change', // Captura automáticamente cambios de ruta
                     loaded: (posthog) => {
                         if (process.env.NODE_ENV === "development") {
                             posthog.debug()
                         }
                     },
-                    capture_pageview: false, // Deshabilitamos el auto-capture para controlarlo manualmente
                 })
             }
         }
     }, [])
 
-    return (
-        <>
-            <Suspense fallback={null}>
-                <PostHogPageView />
-            </Suspense>
-            {children}
-        </>
-    )
+    return <>{children}</>
 }
