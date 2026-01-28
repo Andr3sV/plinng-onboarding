@@ -65,7 +65,7 @@ export default function TourPage() {
             id: "step-8",
             title: "Menú",
             shortDescription: "Descubre como utilizar el menu",
-            videoUrl: "/videos/Galeria - Tour.mp4",
+            videoUrl: "/videos/Menu - Tour.mp4",
         },
     ]
 
