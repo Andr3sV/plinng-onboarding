@@ -61,6 +61,12 @@ export default function TourPage() {
             shortDescription: "Organiza tus recursos visuales",
             videoUrl: "/videos/Galeria - Tour.mp4",
         },
+        {
+            id: "step-8",
+            title: "Menú",
+            shortDescription: "Descubre como utilizar el menu",
+            videoUrl: "/videos/Galeria - Tour.mp4",
+        },
     ]
 
     const handleStepClick = (index: number) => {
