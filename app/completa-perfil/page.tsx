@@ -21,7 +21,7 @@ export default function CompletaPerfilPage() {
     const steps = [
         {
             id: "step-1",
-            title: "Paso 1: Welcome Brief",
+            title: "Paso 1: Comienza tu camino con Plinng",
             description: "Bienvenido a Plinng. Comienza tu recorrido aquí.",
             videoUrl: "/videos/Welcome Brief.mp4",
         },
