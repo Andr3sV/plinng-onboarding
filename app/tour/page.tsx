@@ -130,6 +130,9 @@ export default function TourPage() {
                                 <div
                                     key={step.id}
                                     onClick={() => handleStepClick(index)}
+                                    data-ph-capture
+                                    data-ph-capture-attribute-step-id={step.id}
+                                    data-ph-capture-attribute-step-title={step.title}
                                     className={`self-stretch rounded-[18px] flex items-center py-4 px-8 cursor-pointer transition-all ${selectedStep === index
                                         ? "shadow-[0px_4px_4px_rgba(0,_0,_0,_0.1)] bg-[#EDEEEC]"
                                         : "border border-[#EDEEEC] border-solid bg-white hover:bg-[#EDEEEC]/50"

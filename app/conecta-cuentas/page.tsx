@@ -134,6 +134,9 @@ export default function ConectaCuentasPage() {
                                     <div
                                         key={account.id}
                                         onClick={() => handleAccountClick(account.id)}
+                                        data-ph-capture
+                                        data-ph-capture-attribute-account-type={account.id}
+                                        data-ph-capture-attribute-account-title={account.title}
                                         className={`flex-1 rounded-[18px] flex items-center justify-center py-3 px-2 sm:px-4 cursor-pointer transition-all min-h-[48px] ${isSelected
                                             ? "bg-[#BEFF50]"
                                             : "border border-[#EDEEEC] border-solid bg-white hover:bg-[#EDEEEC]/50"
