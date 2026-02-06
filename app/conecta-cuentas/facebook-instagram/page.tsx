@@ -12,32 +12,6 @@ export default function FacebookInstagramPage() {
       description: "Si aún no tienes una página de Facebook para tu empresa, sigue estos pasos para crearla.",
       videoUrl: "https://drive.google.com/file/d/14wUKH-jaEBwFai0fJSQnpG_F0ZH6ynvG/view?usp=sharing",
     },
-    {
-      id: "step-2",
-      title: "Paso 2: Otorgar acceso a Plinng a la página de Facebook de la empresa",
-      description: "Concede los permisos necesarios para que Plinng pueda gestionar y publicar contenido en tu página de Facebook.",
-      videoUrl: "https://drive.google.com/file/d/14wUKH-jaEBwFai0fJSQnpG_F0ZH6ynvG/view?usp=sharing",
-    },
-    {
-      id: "step-3",
-      title: "Paso 3: Verificar que la cuenta de Instagram esté vinculada a la página de Facebook o realizar la vinculación si aún no está hecha",
-      description: "Asegúrate de que tu cuenta de Instagram esté correctamente vinculada a tu página de Facebook, o realiza la vinculación si aún no está hecha.",
-      videoUrl: "https://drive.google.com/file/d/14wUKH-jaEBwFai0fJSQnpG_F0ZH6ynvG/view?usp=sharing",
-      subSteps: [
-        {
-          id: "substep-3a",
-          title: "Si ya tienes cuenta de Instagram",
-          description: "Si ya tienes una cuenta de Instagram creada, sigue estos pasos para vincularla a tu página de Facebook.",
-          videoUrl: "https://drive.google.com/file/d/14wUKH-jaEBwFai0fJSQnpG_F0ZH6ynvG/view?usp=sharing",
-        },
-        {
-          id: "substep-3b",
-          title: "Si aún no tienes cuenta de Instagram",
-          description: "Si aún no has creado tu cuenta de Instagram, sigue estos pasos para crearla y vincularla a tu página de Facebook.",
-          videoUrl: "https://drive.google.com/file/d/14wUKH-jaEBwFai0fJSQnpG_F0ZH6ynvG/view?usp=sharing",
-        },
-      ],
-    },
   ]
 
   return (

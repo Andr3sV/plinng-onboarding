@@ -25,35 +25,8 @@ const accountSteps = {
     "facebook-instagram": [
         {
             id: "step-1",
-            title: "Paso 1: Crear la página de Facebook de la empresa.",
-            description: "Si la página ya está creada, continúa con el paso 2.",
-            videoUrl: "https://drive.google.com/file/d/1HvSpGU6wSp1e6tUJ83IhaxLyaGhJf4Pg/view?usp=sharing",
-        },
-        {
-            id: "step-2",
-            title: "Paso 2: Otorgar acceso a Plinng a la página de Facebook de la empresa.",
-            description: "",
-            videoUrl: "https://drive.google.com/file/d/1oWctoy4n_PsP8G9kXHDuOeLn3ketqdrS/view?usp=sharing",
-        },
-        {
-            id: "step-3",
-            title: "Paso 3: Verificar la vinculación de Instagram con Facebook",
-            description: "",
-            videoUrl: "https://drive.google.com/file/d/14wUKH-jaEBwFai0fJSQnpG_F0ZH6ynvG/view?usp=sharing",
-            subSteps: [
-                {
-                    id: "substep-3a",
-                    title: "Si ya tienes cuenta de Instagram",
-                    description: "",
-                    videoUrl: "https://drive.google.com/file/d/1qqAqnaLSrSG1L-9B3UsB-CxOC3fUWZ_q/view?usp=sharing",
-                },
-                {
-                    id: "substep-3b",
-                    title: "Si aún no tienes cuenta de Instagram",
-                    description: "",
-                    videoUrl: "https://drive.google.com/file/d/1PPoA7In0bIURuDNi6ahSzZsNuKPor2tO/view?usp=sharing",
-                },
-            ],
+            title: "Paso 1: Conecta tu instagram en la aplicación de Plinng",
+            description: "Accede dentro de la aplicación de Plinng y contecta tu cuenta de instagram dentro del apartado propuestas",
         },
     ],
     "google-empresa": [
@@ -225,13 +198,15 @@ export default function ConectaCuentasPage() {
                                                         </Accordion>
                                                     </div>
                                                 ) : (
-                                                    <div className="w-full">
-                                                        <VideoPlayer
-                                                            src={step.videoUrl}
-                                                            title={step.title}
-                                                            aspectRatio={"aspectRatio" in step && step.aspectRatio ? (step.aspectRatio as "vertical" | "horizontal" | "square") : "horizontal"}
-                                                        />
-                                                    </div>
+                                                    "videoUrl" in step && step.videoUrl ? (
+                                                        <div className="w-full">
+                                                            <VideoPlayer
+                                                                src={step.videoUrl}
+                                                                title={step.title}
+                                                                aspectRatio={"aspectRatio" in step && step.aspectRatio ? (step.aspectRatio as "vertical" | "horizontal" | "square") : "horizontal"}
+                                                            />
+                                                        </div>
+                                                    ) : null
                                                 )}
                                             </AccordionContent>
                                         </AccordionItem>
