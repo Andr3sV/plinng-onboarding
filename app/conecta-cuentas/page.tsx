@@ -47,8 +47,8 @@ const accountSteps = {
         {
             id: "step-1",
             title: "Rellena el siguiente formulario",
-            description: "Para poder completar el *brief* de la web —tanto si se trata de una web nueva como de realizar modificaciones sobre una existente— es necesario que rellenes el siguiente formulario:\n\n👉🏻 https://form.typeform.com/to/yeapDpG0\n\n- Si **quieres una web nueva o realizar cambios**, completa todas las secciones del formulario.\n- Si **no deseas ningún cambio**, rellena únicamente el apartado de **accesos a tus cuentas de web y Facebook**.",
-            videoUrl: "/videos/accesos-web.mp4",
+            description: "En el siguiente formulario te pedimos los accesos accesos a tus cuentas de web y Facebook:  https://form.typeform.com/to/yeapDpG0",
+            videoUrl: "",
             aspectRatio: "vertical",
         },
     ],
