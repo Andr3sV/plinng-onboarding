@@ -6,6 +6,16 @@ import Image from "next/image"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { VideoPlayer } from "@/components/video-player"
 
+type SubStep = { id: string; title: string; description: string; videoUrl: string }
+type Step = {
+    id: string
+    title: string
+    description: string
+    videoUrl?: string
+    aspectRatio?: "vertical" | "horizontal" | "square"
+    subSteps?: SubStep[]
+}
+
 const accountTypes = [
     {
         id: "facebook-instagram",
@@ -21,7 +31,7 @@ const accountTypes = [
     },
 ]
 
-const accountSteps = {
+const accountSteps: Record<string, Step[]> = {
     "facebook-instagram": [
         {
             id: "step-1",

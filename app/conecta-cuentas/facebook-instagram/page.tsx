@@ -4,8 +4,17 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { VideoPlayer } from "@/components/video-player"
 import { ArrowRight, ArrowLeft } from "lucide-react"
 
+type SubStep = { id: string; title: string; description: string; videoUrl: string }
+type Step = {
+  id: string
+  title: string
+  description: string
+  videoUrl: string
+  subSteps?: SubStep[]
+}
+
 export default function FacebookInstagramPage() {
-  const steps = [
+  const steps: Step[] = [
     {
       id: "step-1",
       title: "Paso 1: Crear la página de Facebook de la empresa",
