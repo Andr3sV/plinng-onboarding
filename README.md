@@ -68,4 +68,4 @@ La aplicación está configurada para desplegarse en Vercel:
 
 - Los colores se pueden ajustar en `tailwind.config.ts`
 - Los assets de diseño están en `public/assets/`
-- Los videos se embeben desde Google Drive
+- Los videos se embeben desde Google Drive .
