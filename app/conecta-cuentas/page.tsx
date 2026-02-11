@@ -37,6 +37,8 @@ const accountSteps: Record<string, Step[]> = {
             id: "step-1",
             title: "Paso 1: Conecta tu instagram en la aplicación de Plinng",
             description: "Accede dentro de la aplicación de Plinng y contecta tu cuenta de instagram dentro del apartado propuestas",
+            videoUrl: "/videos/VIncular instagram.mp4",
+            aspectRatio: "vertical",
         },
     ],
     "google-empresa": [
@@ -57,7 +59,7 @@ const accountSteps: Record<string, Step[]> = {
         {
             id: "step-1",
             title: "Rellena el siguiente formulario",
-            description: "En el siguiente formulario te pedimos los accesos accesos a tus cuentas de web y Facebook:  https://form.typeform.com/to/yeapDpG0",
+            description: "En el siguiente formulario te pedimos los accesos accesos a tus cuentas de web.  https://form.typeform.com/to/yeapDpG0",
             videoUrl: "",
             aspectRatio: "vertical",
         },
