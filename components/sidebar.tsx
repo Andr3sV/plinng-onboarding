@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Menu, Home, Sparkles, Download, User, Link2, Compass, HelpCircle } from "lucide-react"
+import { Menu, Home, Sparkles, Download, User, Link2, Compass, HelpCircle, CreditCard, LayoutList } from "lucide-react"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
@@ -15,6 +15,8 @@ const navigationItems = [
     { href: "/completa-perfil", label: "Completa tu perfil", icon: User },
     { href: "/conecta-cuentas", label: "Conecta tus cuentas", icon: Link2 },
     { href: "/tour", label: "Tour por la app", icon: Compass },
+    { href: "/planes-precios", label: "Planes y Precios", icon: LayoutList },
+    { href: "/suscripcion", label: "Suscripción", icon: CreditCard },
     { href: "/faq", label: "Preguntas frecuentes", icon: HelpCircle },
 ]
 
@@ -32,7 +34,7 @@ export function Sidebar() {
                     className="h-8 w-auto"
                 />
             </div>
-            <nav className="flex-1 p-4 space-y-2">
+            <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
                 {navigationItems.map((item) => {
                     const Icon = item.icon
                     const isActive = pathname === item.href ||

@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
-import { Home, Sparkles, Download, User, Link2, Compass, HelpCircle } from "lucide-react"
+import { Home, Sparkles, Download, User, Link2, Compass, HelpCircle, CreditCard, LayoutList } from "lucide-react"
 
 const navigationItems = [
     { href: "/", label: "Home", icon: Home },
@@ -16,6 +16,8 @@ const navigationItems = [
     { href: "/completa-perfil", label: "Completa tu perfil", icon: User },
     { href: "/conecta-cuentas", label: "Conecta tus cuentas", icon: Link2 },
     { href: "/tour", label: "Tour por la app", icon: Compass },
+    { href: "/planes-precios", label: "Planes y Precios", icon: LayoutList },
+    { href: "/suscripcion", label: "Suscripción", icon: CreditCard },
     { href: "/faq", label: "Preguntas frecuentes", icon: HelpCircle },
 ]
 
@@ -33,7 +35,7 @@ export function MobileMenu() {
                     className="h-8 w-auto"
                 />
             </div>
-            <nav className="flex-1 p-4 space-y-2">
+            <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
                 {navigationItems.map((item) => {
                     const Icon = item.icon
                     const isActive = pathname === item.href ||

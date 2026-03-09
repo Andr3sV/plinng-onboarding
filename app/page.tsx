@@ -38,6 +38,20 @@ const navigationCards = [
         image: "/assets/Welcome to Plinng/Card image-4.png",
     },
     {
+        href: "/planes-precios",
+        title: "Planes y Precios",
+        description: "Descubre qué incluye cada plan y elige el tuyo",
+        linkText: "Ver planes",
+        image: "/assets/Welcome to Plinng/Card image-4.png",
+    },
+    {
+        href: "/suscripcion",
+        title: "Suscripción",
+        description: "Gestiona pagos, facturas y tu método de pago",
+        linkText: "Gestionar",
+        image: "/assets/Welcome to Plinng/Card image-3.png",
+    },
+    {
         href: "/faq",
         title: "Preguntas frecuentes",
         description: "Resuelve tus dudas más comunes",
